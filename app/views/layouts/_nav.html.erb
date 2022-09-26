@@ -1,8 +1,8 @@
-<nav data-controller="navbar" class="sticky h-12 w-screen flex justify-between items-center gap-8 pr-8 bg-blue-300 rounded-l-full">
+<nav data-controller="navbar" class="sticky h-12 w-screen flex justify-between items-center gap-8 pr-8 bg-zinc-300 rounded-l-full">
   <div class="flex justify-start items-center">
     <%= link_to image_tag('basket.jpg', class:"min-w-[3rem] w-12 h-12 rounded-full"), root_path %>
     <div class="overflow-hidden float-left px-2.5 py-5">
-      <button class="flex font-righteous text-bold text-xl no-underline text-yellow-300 hover:text-white my-2 ml-2" data-action="navbar#showDrop navbar#hideDropAlt">Stuff</button>
+      <button class="flex font-righteous text-bold text-xl no-underline text-zinc-700 hover:text-white my-2 ml-2" data-action="navbar#showDrop navbar#hideDropAlt">Stuff</button>
       <div class="bg-blue-300 z-20 shadow-small min-w-[180px] hidden absolute rounded-b-xl" data-navbar-target="maindrop">
         <%# link_to "My Posts", posts_path, class:"flex font-righteous text-bold text-lg no-underline text-yellow-300 hover:text-white ml-2 my-2" %>
         <%# link_to "New Post", new_post_path, class:"flex font-righteous text-bold text-lg no-underline text-yellow-300 hover:text-white ml-2 my-2" %>
