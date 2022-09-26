@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px black;
@@ -14,59 +15,39 @@
   }
   .text-shadow-none {
     text-shadow: none;
-  } 
+  }
 }
 
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 m-4 min-w-fit border-b-2 border-orange-600 bg-gradient-to-t from-yellow-300 via-amber-400 to-orange-500 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(255,255,255,0.5)];
+  .btn-yellow {
+    @apply py-2 px-4 min-w-fit text-center border-b-2 border-teal-600 bg-gradient-to-t from-yellow-300 via-amber-200 to-amber-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(255,255,255,0.5)];
   }
 
-  .btn-secondary {
-    @apply py-2 px-4 m-4 min-w-fit border-b-2 border-blue-500 bg-gradient-to-t from-cyan-300 via-sky-400 to-blue-500 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
+  .btn-green {
+    @apply py-2 px-4 min-w-fit text-center border-b-2 border-teal-600 bg-gradient-to-t from-green-300 via-lime-200 to-lime-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
   }
 
-  .buck-title {
-    @apply font-bold sm:text-8xl text-6xl font-monoton sm:ml-0 ml-28 transition-all ease-in;
+  .buck-navlink {
+    @apply flex font-lato font-bold text-sm no-underline hover:text-white mx-4 my-4;
   }
 
-  .buck-titlebox {
-    @apply flex flex-row mt-10 mr-10 sm:justify-end justify-center items-end transition-all ease-in;
+  .buck-navlink-hide {
+    @apply flex font-lato font-bold text-sm no-underline hover:text-white hidden sm:flex mx-[3vw] my-2;
   }
+}
 
-  .btn-group {
-    @apply flex py-4 px-8;
+@keyframes bg-animate {
+  0% {
+    background-position: left;
   }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
 
-  .group-button {
-    @apply no-underline m-0 py-4 px-8 border-b-2 border-blue-500 bg-gradient-to-t from-cyan-300 via-sky-400 to-blue-500 font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
-  }
-
-  .btn-group .group-button:first-child {
-    @apply rounded-tl-[3.2rem] rounded-bl-[.8rem] rounded-r-none ;
-  }
-
-  .btn-group .group-button:not(:last-child) {
-    @apply border-r-0;
-  }
-
-  .btn-group .group-button:not(:first-child) {
-    @apply border-l border-l-indigo-800;
-  }
-
-  .btn-group .group-button:last-child {
-    @apply rounded-l-none rounded-tr-[.8rem] rounded-br-[3.2rem];
-  }
-
-  .group-button:hover {
-    @apply bg-black text-white;
-  }
-
-  .group-button:active {
-    @apply bg-white text-black;
-  }
-
-  .btn-group:after {
-    @apply content-none clear-both table;
-  }
+body {
+  animation: bg-animate 120s infinite;
 }
