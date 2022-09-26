@@ -1,0 +1,27 @@
+<div id="<%= dom_id layout %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= layout.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Length:</strong>
+    <%= layout.length %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Pars:</strong>
+    <%= layout.pars %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Course:</strong>
+    <%= layout.course_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this layout", layout, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this layout', edit_layout_path(layout), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

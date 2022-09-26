@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center"> 
   <div class="flex flex-row mt-10 w-full justify-center items-end">
-    <h2 class="font-bold sm:text-8xl text-6xl font-righteous">Sign Up</h2>
+    <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-right w-full mr-10">Sign Up</h2>
   </div>
  
    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -14,7 +14,7 @@
       <div class="buck-field">
         <%= f.password_field :password_confirmation, placeholder: "repeat-password", class:"rounded-lg font-righteous text-lg mt-3" %><br />
         <% if @minimum_password_length %>
-          <em class="font-righteous md:ml-8 ml-5 text-zinc-700 text-xl">( <%= @minimum_password_length %> characters minimum )</em>
+          <em class="font-righteous ml-8 text-zinc-700 text-lg">( <%= @minimum_password_length %> characters minimum )</em>
         <% end %>
       </div>
       <div class="actions btn-green mt-4 md:mr-20">

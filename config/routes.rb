@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :layouts
   resources :courses
   devise_for :users
   root 'home#index'
