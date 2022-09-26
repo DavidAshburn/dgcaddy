@@ -2,12 +2,27 @@
   <div class="flex justify-start items-center">
     <%= link_to image_tag('basket.jpg', class:"min-w-[3rem] w-12 h-12 rounded-full"), root_path %>
     <div class="overflow-hidden float-left px-2.5 py-5">
-      <button class="flex font-righteous text-bold text-xl no-underline text-zinc-700 hover:text-white my-2 ml-2" data-action="navbar#showDrop navbar#hideDropAlt">Stuff</button>
-      <div class="bg-blue-300 z-20 shadow-small min-w-[180px] hidden absolute rounded-b-xl" data-navbar-target="maindrop">
+      <button class="flex font-righteous text-bold text-xl no-underline text-zinc-700 hover:text-zinc-500 my-2 ml-2" data-action="navbar#showDrop navbar#hideDropAlt">Stuff</button>
+      <div class="bg-zinc-300 z-20 shadow-small min-w-[180px] hidden absolute rounded-b-xl" data-navbar-target="maindrop">
         <%# link_to "My Posts", posts_path, class:"flex font-righteous text-bold text-lg no-underline text-yellow-300 hover:text-white ml-2 my-2" %>
         <%# link_to "New Post", new_post_path, class:"flex font-righteous text-bold text-lg no-underline text-yellow-300 hover:text-white ml-2 my-2" %>
-        <button class="flex font-monoton text-4xl no-underline text-black hover:text-white absolute right-3 bottom-2" data-action="navbar#hideDrop">x</button>
+        <button class="flex font-monoton text-4xl no-underline text-zinc-700 hover:text-zinc-500 absolute right-3 bottom-2" data-action="navbar#hideDrop">x</button>
       </div>
     </div>
   </div>
+  <div class="overflow-hidden flex min-w-fit">
+    <div class="overflow-hidden px-2.5 py-2 flex sm:hidden">
+      <button class="flex font-righteous text-bold text-xl no-underline text-sky-700 hover:text-cyan-600 my-2 ml-2" data-action="navbar#showDropAlt navbar#hideDrop">Links</button>
+        <div class="bg-zinc-300 z-20 shadow-small min-w-[180px] hidden absolute rounded-b-xl right-5" data-navbar-target="altdrop">
+          <%= link_to "Profile", home_profile_path, class:"flex font-righteous text-bold text-lg no-underline text-sky-700 hover:text-cyan-600 ml-2 my-2" %>
+          <%= link_to "About", home_about_path, class:"flex font-righteous text-bold text-lg no-underline text-sky-700 hover:text-cyan-600 ml-2 my-2" %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"lex font-righteous text-bold text-lg no-underline text-zinc-700 hover:text-zinc-500 ml-2 my-2" %><br />
+          <button class="flex font-monoton text-4xl no-underline text-zinc-700 hover:text-zinc-500 absolute right-3 bottom-2" data-action="navbar#hideDropAlt">x</button>
+        </div>
+    </div>
+    <div class="flex justify-end items-center">
+      <%= link_to "Profile", home_profile_path, class:"font-righteous text-bold text-lg no-underline text-sky-700 px-2.5 py-2 hover:text-cyan-600 hidden sm:flex"%>
+      <%= link_to "About", home_about_path, class:"font-righteous text-bold text-lg no-underline text-sky-700 px-2.5 py-2 hover:text-cyan-600 hidden sm:flex"%>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"font-righteous text-bold text-xl no-underline text-zinc-700 px-2.5 py-2 hover:text-zinc-500 hidden sm:flex" %>
+    </div>
 </nav>
