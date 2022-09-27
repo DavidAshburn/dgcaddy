@@ -16,7 +16,7 @@
   </div>
 
   <div class="mt-2">
-    <%= select_tag(:length, options_for_select({"9 Holes" => "9", "18 Holes" => "18"}, "9"), data: { variant_target: "lengthformin", action: "variant#changeLength" }, class:"rounded-md font-righteous text-lg text-slate-500") %>
+    <%= select_tag(:length, options_for_select({"9 Holes" => 9, "18 Holes" => 18}, 9), data: { variant_target: "lengthformin", action: "variant#changeLength" }, class:"rounded-md font-righteous text-lg text-slate-500") %>
   </div>
 
   <%= form.hidden_field :pars, data: { variant_target: "parformout" }, value:"333333333" %>

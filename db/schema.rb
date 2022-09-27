@@ -24,16 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_040830) do
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
-  create_table "layouts", force: :cascade do |t|
-    t.string "name"
-    t.integer "length"
-    t.string "pars"
-    t.integer "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_layouts_on_course_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -48,8 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_040830) do
 
   create_table "variants", force: :cascade do |t|
     t.string "name"
-    t.integer "length"
-    t.string "pars"
+    t.integer "length", default: 9
+    t.string "pars", default: "333333333"
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
