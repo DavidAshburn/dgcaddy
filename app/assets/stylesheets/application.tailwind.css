@@ -31,10 +31,6 @@
     @apply py-2 px-4 min-w-fit text-center border-b-2 border-teal-600 bg-gradient-to-t from-blue-400 via-sky-200 to-sky-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
   }
 
-  .buck-field {
-    @apply mt-2
-  }
-
   .buck-navlink {
     @apply flex font-lato font-bold text-sm no-underline hover:text-white mx-4 my-4;
   }
