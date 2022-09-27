@@ -1,14 +1,10 @@
 class VariantsController < ApplicationController
   before_action :set_variant, only: %i[ show edit update destroy ]
 
-  # GET /variants or /variants.json
-  def index
-    @variants = Variant.all
-  end
-
   # GET /variants/1 or /variants/1.json
   def show
     @course = Course.find(@variant.course_id)
+    @pars = @variant.pars.split('')
   end
 
   # GET /variants/new
@@ -56,7 +52,7 @@ class VariantsController < ApplicationController
     @variant.destroy
 
     respond_to do |format|
-      format.html { redirect_to variants_url, notice: "Variant was successfully destroyed." }
+      format.html { redirect_to courses_url, notice: "Variant was successfully destroyed." }
       format.json { head :no_content }
     end
   end
