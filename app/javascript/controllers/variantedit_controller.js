@@ -9,8 +9,14 @@ export default class extends Controller {
 	"holepar"
 	]
   connect() {
-    this.lengthforminTarget.value = 9;
-	this.holeparTargets.forEach(x => x.value = "3");
+  	if(this.lengthformoutTarget.value == 18)
+  		this.lengthforminTarget.value = 18;
+  	else
+  		this.lengthforminTarget.value = 9;
+  	
+  	let pars = this.parformoutTarget.value.split('');
+  	let holes = this.holeparTargets;
+  	pars.map((element, index) => holes[index].value = element );
   }
 
   changeLength() {
@@ -33,7 +39,6 @@ export default class extends Controller {
 	}
 
 	this.parformoutTarget.value = list.join('');
-	console.log(this.parformoutTarget.value);
   }
 
 

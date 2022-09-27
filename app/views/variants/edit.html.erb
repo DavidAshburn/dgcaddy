@@ -1,8 +1,70 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing variant</h1>
+<div class="flex flex-col items-center" data-controller="variantedit"> 
+  <div class="flex flex-row w-full justify-center items-end">
+    <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-center">Edit Layout</h2>
+  </div>
+  
+  <%= form_with(model: @variant, class: "contents") do |form| %>
+    <% if @variant.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(@variant.errors.count, "error") %> prohibited this variant from being saved:</h2>
 
-  <%= render "form", variant: @variant %>
+        <ul>
+          <% @variant.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <%= link_to "Show this variant", @variant, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to variants", variants_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="mt-2">
+      <%= form.text_field :name, placeholder: "name", class:"rounded-md font-righteous text-lg" %>
+    </div>
+
+    <div class="mt-2">
+      <%= select_tag(:length, options_for_select({"9 Holes" => 9, "18 Holes" => 18}, 9), data: { variantedit_target: "lengthformin", action: "variantedit#changeLength" }, class:"rounded-md font-righteous text-lg text-slate-500") %>
+    </div>
+
+    <%= form.hidden_field :pars, data: { variantedit_target: "parformout" }, value:@variant.pars %>
+    <%= form.hidden_field :course_id, id: :variant_course_id, value:@variant.course_id %>
+    <%= form.hidden_field :length, data: { variantedit_target: "lengthformout" }, value:@variant.length %>
+
+    <div class="flex justify-center w-4/5 pt-4">
+      <div class="flex flex-col w-1/2 gap-2 items-center mt-2 pr-3">
+        <% (1..9).each do |x|%>
+          <div class="flex font-righteous text-3xl">
+            <div class="flex font-bebas w-8 justify-center align-center pt-1"><%= x %></div>
+            <select name="par" id="holepar" data-variantedit-target="holepar" data-action="variantedit#updateParString" class="text-xl rounded-lg border border-gray-200">
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        <% end %>
+      </div>
+      
+      <% if @variant.length == 9 %>
+        <div class="flex flex-col w-1/2 gap-2 items-center mt-2 pr-3 hidden" data-variantedit-target="backnine">
+      <% else %>
+        <div class="flex flex-col w-1/2 gap-2 items-center mt-2 pr-3" data-variantedit-target="backnine">
+      <% end %>
+          <% (10..18).each do |x|%>
+            <div class="flex font-righteous text-3xl">
+              <div class="flex font-bebas w-8 justify-center align-center pt-1"><%= x %></div>
+              <select name="par" id="holepar" data-variantedit-target="holepar" data-action="variantedit#updateParString" class="text-xl rounded-lg border border-gray-200">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    
+
+    <div class="inline">
+      <%= form.submit class: "btn-green mt-4" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back to courses', courses_path, class: "btn-blue mt-2" %>
 </div>
