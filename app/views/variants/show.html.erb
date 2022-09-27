@@ -1,15 +1,14 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<div class="flex flex-col items-center"> 
+  <div class="flex flex-row w-full justify-center">
+    <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-zinc-800"><%= @variant.name %></h2>
+  </div>
+  <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800"><%= @course.name %>,&nbsp<%= @variant.length %>&nbspHoles</h3>
 
-    <%= render @variant %>
+  <!-- show pars -->
 
-    <%= link_to 'Edit this variant', edit_variant_path(@variant), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this variant', variant_path(@variant), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to 'Back to variants', variants_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="flex flex-col w-full justify-center gap-2 mt-4">
+    <%= link_to 'Edit this layout', edit_variant_path(@variant), class: "btn-yellow" %>
+    <%= button_to "Remove this layout", @variant, method: :delete, class:"btn-yellow w-full" %>
+    <%= link_to 'Back to course', @course, class: "btn-blue" %>
   </div>
 </div>

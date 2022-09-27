@@ -8,6 +8,7 @@ class VariantsController < ApplicationController
 
   # GET /variants/1 or /variants/1.json
   def show
+    @course = Course.find(@variant.course_id)
   end
 
   # GET /variants/new
@@ -19,7 +20,7 @@ class VariantsController < ApplicationController
 
   # GET /variants/1/edit
   def edit
-    @length_options = [["9 Holes", 9],["18 Holes", 18]]
+    @course = Course.find(@variant.course_id)
   end
 
   # POST /variants or /variants.json
