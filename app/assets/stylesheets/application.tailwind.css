@@ -38,6 +38,10 @@
   .buck-navlink-hide {
     @apply flex font-lato font-bold text-sm no-underline hover:text-white hidden sm:flex mx-[3vw] my-2;
   }
+
+  .inset-shadow {
+    @apply shadow-[inset_0_-2px_4px_rgba(255,255,255,0.5)];
+  }
 }
 
 @keyframes bg-animate {
