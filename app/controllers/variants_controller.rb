@@ -14,7 +14,6 @@ class VariantsController < ApplicationController
   def new
     @variant = Variant.new
     @course_id = params[:course_id]
-    @length_options = [["9 Holes", 9],["18 Holes", 18]]
     @par_options = [[3,4,5], 3]
   end
 

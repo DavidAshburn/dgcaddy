@@ -16,37 +16,42 @@
   </div>
 
   <div class="mt-2">
-    <%= select_tag(:length, options_for_select(@length_options), data: { variant_target: "lengthformin", action: "variant#changeLength" }, class:"rounded-md font-righteous text-lg text-slate-500") %>
+    <%= select_tag(:length, options_for_select({"9 Holes" => "9", "18 Holes" => "18"}, "9"), data: { variant_target: "lengthformin", action: "variant#changeLength" }, class:"rounded-md font-righteous text-lg text-slate-500") %>
   </div>
 
   <%= form.hidden_field :pars, data: { variant_target: "parformout" }, value:"333333333" %>
   <%= form.hidden_field :course_id, id: :variant_course_id, value:@course_id %>
 
-  <div class="flex justify-center w-4/5">
-    <div class="flex flex-col w-1/2 gap-2 border border-black items-center mt-2">
-      <% (0..9).each do %>
-        <select name="par" id="holepar" class="rounded-md font-righteous text-lg text-slate-500 w-[5rem]">
-          <option value="3" selected="selected">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+  <div class="flex justify-center w-4/5 pt-4">
+    <div class="flex flex-col w-1/2 gap-2 items-center mt-2 pr-3">
+      <% (1..9).each do |x|%>
+        <div class="flex font-righteous text-3xl">
+          <div class="flex font-bebas w-8 justify-center align-center pt-1"><%= x %></div>
+          <select name="par" id="holepar" data-variant-target="holepar" data-action="variant#updateParString" class="text-xl rounded-lg border border-gray-200">
+            <option value="3" selected="selected">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      <% end %>
+    </div>
+  
+    <div class="flex flex-col w-1/2 gap-2 items-center mt-2 pr-3 hidden" data-variant-target="backnine">
+      <% (10..18).each do |x|%>
+        <div class="flex font-righteous text-3xl">
+          <div class="flex font-bebas w-8 justify-center align-center pt-1"><%= x %></div>
+          <select name="par" id="holepar" data-variant-target="holepar" data-action="variant#updateParString" class="text-xl rounded-lg border border-gray-200">
+            <option value="3" selected="selected">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
       <% end %>
     </div>
   </div>
-
-  <div class="flex justify-center hidden" data-variant-target="backnine">
-    <div class="flex flex-col w-1/2 gap-2 border border-black items-center mt-2">
-      <% (0..9).each do %>
-        <select name="par" id="holepar">
-          <option value="3" selected="selected">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      <% end %>
-    </div>
-  </div>
+  
 
   <div class="inline">
-    <%= form.submit class: "btn-green" %>
+    <%= form.submit class: "btn-green mt-4" %>
   </div>
 <% end %>
