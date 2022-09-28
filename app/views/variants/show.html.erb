@@ -46,7 +46,7 @@
   </div>
 
   <div class="flex flex-col w-full justify-center gap-2 mt-4">
-    <%= link_to 'Play', new_card_path(variant_id: @variant.id, length: @variant.length), class: "btn-green" %>
+    <%= link_to 'Play', new_card_path(variant_id: @variant.id), class: "btn-green" %>
     <%= link_to 'Edit this layout', edit_variant_path(@variant), class: "btn-yellow" %>
     <%= button_to "Remove this layout", @variant, method: :delete, class:"btn-yellow w-full" %>
     <%= link_to 'Back to course', @course, class: "btn-blue" %>
