@@ -5,6 +5,7 @@ export default class extends Controller {
     "holePar",
     "holeScore",
     "holeNumber",
+    "scorecardNumber",
     "cardHole",
     "shotIcons",
     "hiddenLength",
@@ -14,24 +15,34 @@ export default class extends Controller {
     "shotModal",
     "basketModal",
     "submitModal",
-    "removeMe"
+    "removeMe",
+    "showShots"
   ]
 
   connect() {
   	this.hole = 0;
   	this.length = this.hiddenLengthTarget.innerText;
   	this.scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    this.score = 0;
   	this.shots = []; //char array
   	this.parray = this.hiddenParsTarget.innerText.split(''); //char array of numbers
   	this.updateCard();
   }
 
   undoShot() {
-  	if(this.scores[this.hole] != 0) {
-	  this.scores[this.hole]--;
-	  this.shots.pop();
-	  this.updateCard();
-	}
+    if(this.shots[0] != null) {
+      if(this.shots.at(-1) == '0') {
+        this.shots.pop();
+      }
+      if(this.shots.at(-1) == '5') {
+        this.scores[this.hole]--;
+      }
+    	if(this.scores[this.hole] != 0) {
+    	  this.scores[this.hole]--;
+    	  this.shots.pop();
+    	  this.updateCard();
+      }
+    }
   }
 
   addShot(val) {
@@ -40,8 +51,10 @@ export default class extends Controller {
   }
 
   lastHole() {
-  	this.hole--;
-  	this.updateCard();
+    if(this.hole != 0) {
+    	this.hole--;
+    	this.updateCard();
+    }
   }
   nextHole() {
   	this.hole++;
@@ -62,26 +75,46 @@ export default class extends Controller {
     }
 
     //style score numbers for bogey, par, and birdie(skip 0s)
+    //set innerText on card and sum this.score
     let scorecard = this.cardHoleTargets;
+    this.score = 0;
     for(let i = 0; i < this.length; i++) {
-      let score = parseInt(scorecard[i].innerText);
+      let hole = parseInt(this.scores[i]);
       
-      if(score > this.parray[i]) {
+      if(hole > this.parray[i]) {
         scorecard[i].classList.toggle("text-amber-600", true);
         scorecard[i].classList.toggle("text-green-600", false);
         scorecard[i].classList.toggle("text-sky-600", false);
-      } else if(score == this.parray[i]) {
+      } else if(hole == this.parray[i]) {
         scorecard[i].classList.toggle("text-amber-600", false);
         scorecard[i].classList.toggle("text-green-600", true);
         scorecard[i].classList.toggle("text-sky-600", false);
-      } else if(score != 0) {
+      } else if(hole != 0) {
         scorecard[i].classList.toggle("text-amber-600", false);
         scorecard[i].classList.toggle("text-green-600", false);
         scorecard[i].classList.toggle("text-sky-600", true);
       }
 
-      scorecard[i].innerText = this.scores[i]; 
+      //update scores on display
+      scorecard[i].innerText = this.scores[i];
+
+      //sum total score for form output
+      this.score += this.scores[i];
+
+      //highlight current hole on scorecard
+      if(i == this.hole) {
+        this.scorecardNumberTargets[i].classList.toggle("text-white", true);
+        this.scorecardNumberTargets[i].classList.toggle("text-3xl", true);
+        this.scorecardNumberTargets[i].classList.toggle("text-slate-700", false);
+      }
+      else {
+        this.scorecardNumberTargets[i].classList.toggle("text-white", false);
+        this.scorecardNumberTargets[i].classList.toggle("text-3xl", false);
+        this.scorecardNumberTargets[i].classList.toggle("text-slate-700", true);
+      }
+
     }
+    this.showShotsTarget.innerText = this.shots.join('');
   }
 
   openBasketModal() {
@@ -152,6 +185,7 @@ export default class extends Controller {
   }
 
   closeBasketModal() {
+    console.log("closeBasketModal");
     this.basketModalTarget.classList.toggle("hidden", true);
   }
 
@@ -212,6 +246,8 @@ export default class extends Controller {
   
   openSubmitModal() {
     this.submitModalTarget.classList.toggle("hidden", false);
+    this.hiddenShotsTarget.innerText = this.shots.join('');
+    this.hiddenScoreTarget.innerText = this.score;
   }
 
   closeSubmitModal() {

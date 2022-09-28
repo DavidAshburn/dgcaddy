@@ -8,6 +8,9 @@ class CardsController < ApplicationController
 
   # GET /cards/1 or /cards/1.json
   def show
+    @variant = Variant.find_by(id: @card.variant_id)
+    @course = Course.find_by(id: @card.course_id)
+    @pars = @variant.pars.split('')
   end
 
   # GET /cards/new
