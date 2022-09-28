@@ -20,15 +20,19 @@
 
 @layer components {
   .btn-yellow {
-    @apply py-2 px-4 min-w-fit text-center border-b-2 border-teal-600 bg-gradient-to-t from-yellow-300 via-amber-200 to-amber-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(255,255,255,0.5)];
+    @apply py-2 px-4 min-w-fit text-center bg-gradient-to-t from-yellow-300 via-amber-200 to-orange-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(255,255,255,0.5)];
   }
 
   .btn-green {
-    @apply py-2 px-4 min-w-fit text-center border-b-2 border-teal-600 bg-gradient-to-t from-green-300 via-lime-200 to-lime-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
+    @apply py-2 px-4 min-w-fit text-center bg-gradient-to-t from-emerald-300 via-green-200 to-lime-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
   }
 
   .btn-blue {
-    @apply py-2 px-4 min-w-fit text-center border-b-2 border-teal-600 bg-gradient-to-t from-blue-400 via-sky-200 to-sky-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
+    @apply py-2 px-4 min-w-fit text-center bg-gradient-to-t from-sky-400 via-cyan-200 to-teal-100 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
+  }
+
+  .btn-grey {
+    @apply py-2 px-4 min-w-fit text-center bg-gradient-to-t from-stone-500 via-neutral-300 to-zinc-200 rounded-full font-raleway font-bold text-gray-700 shadow-[inset_0_-2px_4px_rgba(220,220,255,0.2)];
   }
 
   .buck-navlink {

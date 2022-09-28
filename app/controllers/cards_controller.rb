@@ -14,6 +14,7 @@ class CardsController < ApplicationController
   def new
     @card = Card.new
     @variant = Variant.find_by(id: params[:variant_id])
+    @course = Course.find_by(id: @variant.course_id)
     @length = params[:length]
     @pars = @variant.pars.split('')
   end
