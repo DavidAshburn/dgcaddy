@@ -1,7 +1,9 @@
-<div data-controller="viewcard" class="flex flex-col justify-between h-[82vh]">
-  <div class="hidden" data-viewcard-target="hiddenPars"><%= @variant.pars %></div>
-  <div class="hidden" data-viewcard-target="hiddenShots"><%= @card.shots %></div>
-  <div class="hidden" data-viewcard-target="hiddenLength"><%= @card.length %></div>
+<div data-controller="viewcard" class="flex flex-col justify-start h-[82vh]">
+  <div class="hidden font-raleway text-xl" data-viewcard-target="hiddenPars"><%= @variant.pars %></div>
+  <div class="font-raleway text-xl mb-6" data-viewcard-target="hiddenShots"><%= @card.shots %></div>
+  <div class="hidden font-raleway text-xl" data-viewcard-target="hiddenLength"><%= @card.length %></div>
+  <div class="font-raleway text-xl mb-6 border border-black h-12" data-viewcard-target="testDisplay"></div>
+  <div class="font-raleway text-xl mb-6 border border-black h-12" data-viewcard-target="testDisplay2"></div>
 
   <div class="flex flex-col items-center font-righteous text-4xl -mt-5">
     <div class="flex flex-row w-full justify-center">

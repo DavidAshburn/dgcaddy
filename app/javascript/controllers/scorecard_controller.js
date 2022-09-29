@@ -57,11 +57,12 @@ export default class extends Controller {
     }
   }
   nextHole() {
-  	this.hole++;
-    if(this.hole == this.length)
-      this.openSubmitModal()
+    if(this.hole < this.length - 1) {
+  	  this.hole++;
+      this.updateCard();
+    }
     else
-  	  this.updateCard();
+      this.openSubmitModal()
   }
 
   updateCard() {
@@ -246,8 +247,10 @@ export default class extends Controller {
   
   openSubmitModal() {
     this.submitModalTarget.classList.toggle("hidden", false);
-    this.hiddenShotsTarget.innerText = this.shots.join('');
+    this.hiddenShotsTarget.value = this.shots.join('');
     this.hiddenScoreTarget.innerText = this.score;
+    console.log(this.shots.join(''));
+    console.log("openSubmitModal");
   }
 
   closeSubmitModal() {

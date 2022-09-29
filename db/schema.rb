@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_200953) do
 
   create_table "cards", force: :cascade do |t|
     t.integer "score"
-    t.string "shots"
+    t.string "shots", null: false
     t.integer "length"
     t.integer "user_id"
     t.integer "course_id"
