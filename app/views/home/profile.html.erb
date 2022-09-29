@@ -1,6 +1,12 @@
+<div data-controller="maps">
+  <div class="w-full text-right font-righteous text-8xl leading-[4.6rem] text-zinc-800">Profile</div>
 
-<div class="w-full text-right font-righteous text-8xl leading-[4.6rem] text-zinc-800">Profile</div>
+  <div class="flex justify-evenly items-center h-[3rem] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200 mt-8">
+    <div class="font-bold font-righteous text-lg max-w-[50%] text-center" data-maps-target="latitude"></div>
+    <div class="font-raleway max-w-[35%] text-center" data-maps-target="longitude"></div>
+  </div>
 
-<div class="flex w-full justify-center">
-  <div id="map"></div>
+  <div class="flex w-full justify-center">
+    <div id="map"></div>
+  </div>
 </div>
