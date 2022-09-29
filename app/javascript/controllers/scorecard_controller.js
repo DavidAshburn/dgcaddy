@@ -186,7 +186,6 @@ export default class extends Controller {
   }
 
   closeBasketModal() {
-    console.log("closeBasketModal");
     this.basketModalTarget.classList.toggle("hidden", true);
   }
 
@@ -249,8 +248,6 @@ export default class extends Controller {
     this.submitModalTarget.classList.toggle("hidden", false);
     this.hiddenShotsTarget.value = this.shots.join('');
     this.hiddenScoreTarget.innerText = this.score;
-    console.log(this.shots.join(''));
-    console.log("openSubmitModal");
   }
 
   closeSubmitModal() {
