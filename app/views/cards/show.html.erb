@@ -1,17 +1,15 @@
 <div data-controller="viewcard" class="flex flex-col justify-start h-[82vh]">
   <div class="hidden font-raleway text-xl" data-viewcard-target="hiddenPars"><%= @variant.pars %></div>
-  <div class="font-raleway text-xl mb-6" data-viewcard-target="hiddenShots"><%= @card.shots %></div>
+  <div class="hidden font-raleway text-xl mb-6" data-viewcard-target="hiddenShots"><%= @card.shots %></div>
   <div class="hidden font-raleway text-xl" data-viewcard-target="hiddenLength"><%= @card.length %></div>
-  <div class="font-raleway text-xl mb-6 border border-black h-12" data-viewcard-target="testDisplay"></div>
-  <div class="font-raleway text-xl mb-6 border border-black h-12" data-viewcard-target="testDisplay2"></div>
 
   <div class="flex flex-col items-center font-righteous text-4xl -mt-5">
     <div class="flex flex-row w-full justify-center">
-      <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-zinc-800"><%= @course.name %></h2>
+      <h2 class="font-bold text-6xl font-righteous text-zinc-800"><%= @course.name %></h2>
     </div>
     <div class="flex justify-center gap-4 w-4/5">
-      <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800"><%= @course.city %>,&nbsp<%= @course.state %></h3>
-      <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800"><%= @variant.name %></h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800"><%= @course.city %>,&nbsp<%= @course.state %></h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800"><%= @variant.name %></h3>
     </div>
   </div>
 
@@ -69,22 +67,44 @@
 
   <div class="flex flex-col items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-tr from-sky-400/50 to-teal-200/50 rounded-lg border-t border-l border-gray-200 mt-2 inset-shadow">
     <div class="flex w-5/6 justify-between m-4">
-      <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800">Fairway</h3>
-      <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800" data-viewcard-target="fairwayPercentage"></h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800">Par</h3>
+      <h3 class="font-bold text-2xl font-righteous rounded-full bg-white p-2 min-w-[3rem] text-center text-zinc-800" data-viewcard-target="coursePar"></h3>
+    </div>
+    <div class="flex w-5/6 justify-between m-4">
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800">Score</h3>
+      <h3 class="font-bold text-2xl font-righteous rounded-full bg-white p-2 min-w-[3rem] text-center text-zinc-800" data-viewcard-target="cardScore"></h3>
+    </div>
+    <div class="flex w-5/6 justify-between m-4">
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800">Over/Under</h3>
+      <h3 class="font-bold text-2xl font-righteous rounded-full bg-white p-2 min-w-[3rem] text-center" data-viewcard-target="overUnder"></h3>
     </div>
   </div>
 
   <div class="flex flex-col items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-tr from-sky-400/50 to-teal-200/50 rounded-lg border-t border-l border-gray-200 mt-2 inset-shadow">
     <div class="flex w-5/6 justify-between m-4">
-      <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800">C1x</h3>
-      <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800" data-viewcard-target="cOneXPercentage"></h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800">Fairway</h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800" data-viewcard-target="fairwayPercentage"></h3>
     </div>
   </div>
 
   <div class="flex flex-col items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-tr from-sky-400/50 to-teal-200/50 rounded-lg border-t border-l border-gray-200 mt-2 inset-shadow">
     <div class="flex w-5/6 justify-between m-4">
-      <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800">C2</h3>
-      <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800" data-viewcard-target="cTwoPercentage"></h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800">C1x</h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800" data-viewcard-target="cOneXPercentage"></h3>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-tr from-sky-400/50 to-teal-200/50 rounded-lg border-t border-l border-gray-200 mt-2 inset-shadow">
+    <div class="flex w-5/6 justify-between m-4">
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800">C2</h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800" data-viewcard-target="cTwoPercentage"></h3>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-tr from-sky-400/50 to-teal-200/50 rounded-lg border-t border-l border-gray-200 mt-2 inset-shadow">
+    <div class="flex w-5/6 justify-between m-4">
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800">Penalties</h3>
+      <h3 class="font-bold text-2xl font-righteous text-zinc-800" data-viewcard-target="penaltyShots"></h3>
     </div>
   </div>
 
