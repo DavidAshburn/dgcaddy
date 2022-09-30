@@ -9,7 +9,7 @@ export default class extends Controller {
 
  	connect() {
    	this.checkGeolocation();
-   	this.getGeolocation();
+   	this.putLocation();
  	}
 
  	checkGeolocation() {
@@ -20,13 +20,12 @@ export default class extends Controller {
    	}
  	}
 
- 	getGeolocation() {	
+ 	putLocation() {	
  		navigator.geolocation.getCurrentPosition(position => {
- 			let lat = position.coords.latitude;
-		this.latitudeTarget.innerText = lat;
- 			let lon = position.coords.longitude;
- 			this.longitudeTarget.innerText = lon;
+ 			this.lat = position.coords.latitude;
+			this.latitudeTarget.innerText = this.lat;
+ 			this.lon = position.coords.longitude;
+ 			this.longitudeTarget.innerText = this.lon;
  		});
  	}
-
 }

@@ -11,6 +11,9 @@
     <%= javascript_importmap_tags %>
     <script src="https://kit.fontawesome.com/5b70548259.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&family=Monoton&family=PT+Mono&family=Questrial&family=Raleway:wght@300;400;600;700&family=Righteous&family=Urbanist:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% end %>
   </head>
 
   <% if notice %>
@@ -24,7 +27,7 @@
       <%= render 'layouts/nav' %>
     </div>
   <% end %>
-  
+  <!-- bg-oversize bg-gradient-to-tr from-sky-400 via-cyan-300 to-teal-200 -->
   <body class="bg-fixed bg-oversize bg-gradient-to-tr from-sky-400 via-cyan-300 to-teal-200">
     <svg id="eSdVfh28yc61" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 150 200" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" class="-z-10 absolute top-0 -left-40"><g transform="translate(10.667134 5.154904)">
       <line x1="-16.698113" y1="-29.433962" x2="16.698113" y2="29.433963" transform="matrix(4.387291 0 0 4.581727 66.48607 94.845096)" fill="none" stroke="#fde047" stroke-width="1.5"/>
@@ -38,3 +41,8 @@
   </body>
 
 </html>
+
+<!-- 
+
+
+  -->

@@ -7,6 +7,11 @@ export default class extends Controller {
     "hiddenShots",
     "hiddenLength",
     "fairwayPercentage",
+    "fairwayO",
+    "fairway1",
+    "fairway2",
+    "fairway4",
+    "fairwayP",
     "cOneXPercentage",
     "cTwoPercentage",
     "penaltyShots",
@@ -64,10 +69,24 @@ export default class extends Controller {
     else return index;
   }
 
+  drive(array, match, target) {
+    if(array) {
+      target.innerText = `${(this.count(array, match)/parseFloat(this.length)).toFixed(2) * 100}%`;
+    }
+    else
+      target.innerText = "N/A";
+  }
+
   drivingPercent() { // (length - (bad drives)) / length
     let driveArray = this.shots.filter((shot, index, shots) => index == 0 || shots[index-1] == 0); //gets 1st and after baskets
     let drivePercent = (this.length - (this.count(driveArray, '5') + this.count(driveArray, '3'))) / this.length;
     this.fairwayPercentageTarget.innerText = `${drivePercent.toFixed(2) * 100}%`;
+
+    this.drive(driveArray, '4', this.fairway4Target);
+    this.drive(driveArray, '3', this.fairwayOTarget);
+    this.drive(driveArray, '1', this.fairway1Target);
+    this.drive(driveArray, '2', this.fairway2Target);
+    this.drive(driveArray, '5', this.fairwayPTarget);
   }
 
   circleOneXPercent() { // (made putts - tapins) / (all putts - tapins)
