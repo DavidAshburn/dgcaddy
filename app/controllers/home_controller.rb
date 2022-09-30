@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   def profile
   end
 
-  def about
+  def map
   end
 end

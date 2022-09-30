@@ -104,7 +104,6 @@ export default class extends Controller {
       let cOneC = this.count(followups,'C');
       let cOnex = (cOneB + cOneC) / (followups.length - tapins);
       let misses = followups.length - cOneC - cOneB - tapins;
-
       
       this.cOneXPercentageTarget.innerText = `${cOnex.toFixed(2) * 100}%`;
       this.cOneMidTarget.innerText = cOneB;

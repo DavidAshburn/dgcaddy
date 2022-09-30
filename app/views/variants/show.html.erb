@@ -45,6 +45,16 @@
     <% end %>    
   </div>
 
+  <div class="flex flex-col w-full gap-4 mt-4">
+    <% @variant.cards.each do |element| %>
+      <div class="flex justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200">
+        
+        <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= link_to "#{element.created_at}", element %></div>
+        <div class="font-raleway max-w-[35%] text-center"><%= @totalpar %></div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="flex flex-col w-full justify-center gap-2 mt-4">
     <%= link_to 'Play', new_card_path(variant_id: @variant.id), class: "btn-green" %>
     <%= link_to 'Edit this layout', edit_variant_path(@variant), class: "btn-yellow" %>
