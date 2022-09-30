@@ -12,6 +12,8 @@ export default class extends Controller {
     "fairway2",
     "fairway4",
     "fairwayP",
+    "cOneMid",
+    "cOneFar",
     "cOneXPercentage",
     "cTwoPercentage",
     "penaltyShots",
@@ -69,7 +71,7 @@ export default class extends Controller {
     else return index;
   }
 
-  drive(array, match, target) {
+  drive(array, match, target) { //percentages for different Drives substats, puts count(match)/length to target.innerText
     if(array) {
       target.innerText = `${(this.count(array, match)/parseFloat(this.length)).toFixed(2) * 100}%`;
     }
@@ -77,28 +79,35 @@ export default class extends Controller {
       target.innerText = "N/A";
   }
 
-  drivingPercent() { // (length - (bad drives)) / length
+  drivingPercent() { // (length - (bad drives)) / length, drive() for substats
     let driveArray = this.shots.filter((shot, index, shots) => index == 0 || shots[index-1] == 0); //gets 1st and after baskets
     let drivePercent = (this.length - (this.count(driveArray, '5') + this.count(driveArray, '3'))) / this.length;
     this.fairwayPercentageTarget.innerText = `${drivePercent.toFixed(2) * 100}%`;
 
+    this.drive(driveArray, '5', this.fairwayPTarget);
     this.drive(driveArray, '4', this.fairway4Target);
     this.drive(driveArray, '3', this.fairwayOTarget);
-    this.drive(driveArray, '1', this.fairway1Target);
     this.drive(driveArray, '2', this.fairway2Target);
-    this.drive(driveArray, '5', this.fairwayPTarget);
+    this.drive(driveArray, '1', this.fairway1Target);
   }
 
   circleOneXPercent() { // (made putts - tapins) / (all putts - tapins)
     let followups = this.next_char(this.shots,'1');
-    if (followups[0]) {
+    if (followups) {
       let tapins = this.count(followups, 'A');
-      let cOnex = this.count(followups, 'B') + this.count(followups,'C');
-      cOnex /= (followups.length - tapins);
+      let cOneB = this.count(followups, 'B');
+      let cOneC = this.count(followups,'C');
+      let cOnex = (cOneB + cOneC) / (followups.length - tapins);
       
       this.cOneXPercentageTarget.innerText = `${cOnex.toFixed(2) * 100}%`;
+      this.cOneMidTarget.innerText = cOneB;
+      this.cOneFarTarget.innerText = cOneC;
     }
-    else this.cOneXPercentageTarget.innerText = "N/A";
+    else {
+      this.cOneXPercentageTarget.innerText = "N/A";
+      this.cOneMidTarget.innerText = "N/A";
+      this.cOneFarTarget.innerText = "N/A";
+    }
   }
 
   circleTwoPercent() { // made putts from C2 / all putts from C2
