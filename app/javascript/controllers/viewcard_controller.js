@@ -14,6 +14,11 @@ export default class extends Controller {
     "fairwayP",
     "cOneMid",
     "cOneFar",
+    "cOneMisses",
+    "cTwoNear",
+    "cTwoMid",
+    "cTwoFar",
+    "cTwoMisses",
     "cOneXPercentage",
     "cTwoPercentage",
     "penaltyShots",
@@ -98,26 +103,43 @@ export default class extends Controller {
       let cOneB = this.count(followups, 'B');
       let cOneC = this.count(followups,'C');
       let cOnex = (cOneB + cOneC) / (followups.length - tapins);
+      let misses = followups.length - cOneC - cOneB - tapins;
+
       
       this.cOneXPercentageTarget.innerText = `${cOnex.toFixed(2) * 100}%`;
       this.cOneMidTarget.innerText = cOneB;
       this.cOneFarTarget.innerText = cOneC;
+      this.cOneMissesTarget.innerText = misses;
     }
     else {
       this.cOneXPercentageTarget.innerText = "N/A";
       this.cOneMidTarget.innerText = "N/A";
       this.cOneFarTarget.innerText = "N/A";
+      this.cOneMissesTarget.innerText = "N/A";
     }
   }
 
   circleTwoPercent() { // made putts from C2 / all putts from C2
     let followups = this.next_char(this.shots,'2');
     if (followups[0]) {
-      let cTwo = this.count(followups, 'A') + this.count(followups, 'B') + this.count(followups, 'C');
-      cTwo /= parseFloat(this.count(this.shots, '2'));
-      this.cTwoPercentageTarget.innerText = `${cTwo.toFixed(2) * 100}%`
+      let cTwoA = this.count(followups, 'A');
+      let cTwoB = this.count(followups, 'B');
+      let cTwoC = this.count(followups, 'C');
+      let cTwo = cTwoA + cTwoB + cTwoC;
+
+      let cTwoPerc = cTwo / parseFloat(this.count(this.shots, '2'));
+      this.cTwoPercentageTarget.innerText = `${cTwoPerc.toFixed(2) * 100}%`
+      this.cTwoNearTarget.innerText = cTwoA;
+      this.cTwoMidTarget.innerText = cTwoB;
+      this.cTwoFarTarget.innerText = cTwoC;
+      this.cTwoMissesTarget.innerText = followups.length - cTwo;
+    } else {
+      this.cTwoPercentageTarget.innerText = "N/A";
+      this.cTwoNearTarget.innerText = "N/A";
+      this.cTwoMidTarget.innerText = "N/A";
+      this.cTwoFarTarget.innerText = "N/A";
+      this.cTwomissesTarget.innerText = "N/A";
     }
-    else this.cTwoPercentageTarget.innerText = "N/A";
   }
 
   penaltyShots() {
@@ -149,7 +171,7 @@ export default class extends Controller {
       
       switch(this.shots[i]) {
         case '0': //basket shot
-          shot_counter--; //putt code shot_counter correction
+          shot_counter--; //correction for putt codes before each 0
           this.scores.push(shot_counter);
           shot_counter = 0;
           
