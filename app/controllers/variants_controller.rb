@@ -25,7 +25,7 @@ class VariantsController < ApplicationController
 
     respond_to do |format|
       if @variant.save
-        format.html { redirect_to variant_url(@variant), notice: "Variant was successfully created." }
+        format.html { redirect_to variant_url(@variant), notice: "Layout was successfully created." }
         format.json { render :show, status: :created, location: @variant }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class VariantsController < ApplicationController
   def update
     respond_to do |format|
       if @variant.update(variant_params)
-        format.html { redirect_to variant_url(@variant), notice: "Variant was successfully updated." }
+        format.html { redirect_to variant_url(@variant), notice: "Layout was successfully updated." }
         format.json { render :show, status: :ok, location: @variant }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class VariantsController < ApplicationController
     @variant.destroy
 
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: "Variant was successfully destroyed." }
+      format.html { redirect_to courses_url, notice: "Layout was successfully destroyed." }
       format.json { head :no_content }
     end
   end
