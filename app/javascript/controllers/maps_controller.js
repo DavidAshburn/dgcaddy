@@ -10,6 +10,9 @@ export default class extends Controller {
  	connect() {
    	this.checkGeolocation();
    	this.putLocation();
+   	if (typeof (google) !="undefined") {
+   		this.initMap();
+   	}
  	}
 
  	checkGeolocation() {
@@ -28,4 +31,20 @@ export default class extends Controller {
  			this.longitudeTarget.innerText = this.lon;
  		});
  	}
+
+ 	initMap() {
+ 		this.map();
+ 	}
+
+ 	map() {
+ 		if(this._map == undefined) {
+ 			this._map = new google.maps.Map(this.mapPaneTarget, {
+ 				center: new google.maps.LatLng(this.latitudeTarget.value, this.longitudeTarget.value),
+ 				zoom: 17
+ 			})
+ 		}
+ 		return this._map
+ 	}
+
+
 }

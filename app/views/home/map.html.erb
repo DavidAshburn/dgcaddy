@@ -1,6 +1,6 @@
-<div data-controller="maps">
+<div data-controller="maps" data-action="google-maps-callback@window->maps#initMap">
   <% content_for :head do %>
-    
+    <%= javascript_include_tag  "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:maps_api]}&callback=dispatchMapsEvent", async: true, defer: true, "data-turbolinks-eval": false %>
   <% end %>
   <div class="w-full text-right pr-12 font-righteous text-4xl leading-[4.6rem] text-zinc-800"><%= current_user.email %></div>
 
@@ -10,6 +10,6 @@
   </div>
 
   <div class="flex w-full justify-center">
-    <div id="map"></div>
+    <div id="map" class="w-full h-[400px]" data-maps-target="mapPane"></div>
   </div>
 </div>

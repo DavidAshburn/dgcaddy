@@ -12,6 +12,7 @@ export default class extends Controller {
     "fairway2",
     "fairway4",
     "fairwayP",
+    "cOneTap",
     "cOneMid",
     "cOneFar",
     "cOneMisses",
@@ -106,12 +107,14 @@ export default class extends Controller {
       let misses = followups.length - cOneC - cOneB - tapins;
       
       this.cOneXPercentageTarget.innerText = `${cOnex.toFixed(2) * 100}%`;
+      this.cOneTapTarget.innerText = tapins;
       this.cOneMidTarget.innerText = cOneB;
       this.cOneFarTarget.innerText = cOneC;
       this.cOneMissesTarget.innerText = misses;
     }
     else {
       this.cOneXPercentageTarget.innerText = "N/A";
+      this.cOneTapTarget.innerText = "N/A";
       this.cOneMidTarget.innerText = "N/A";
       this.cOneFarTarget.innerText = "N/A";
       this.cOneMissesTarget.innerText = "N/A";

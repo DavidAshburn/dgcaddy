@@ -247,7 +247,7 @@ export default class extends Controller {
   openSubmitModal() {
     this.submitModalTarget.classList.toggle("hidden", false);
     this.hiddenShotsTarget.value = this.shots.join('');
-    this.hiddenScoreTarget.innerText = this.score;
+    this.hiddenScoreTarget.value = this.score;
   }
 
   closeSubmitModal() {

@@ -5,7 +5,6 @@ class VariantsController < ApplicationController
   def show
     @course = Course.find(@variant.course_id)
     @pars = @variant.pars.split('')
-    @totalpar = @pars.reduce(:+)
   end
 
   # GET /variants/new
