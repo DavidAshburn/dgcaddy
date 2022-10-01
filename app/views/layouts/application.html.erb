@@ -6,11 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <% if content_for?(:head) %>
-      <%= yield(:head) %>
-    <% end %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= yield(:head) %>
     <script src="https://kit.fontawesome.com/5b70548259.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?&family=Lato:wght@400;700&family=Monoton&family=Questrial&family=Raleway:wght@300;400;600;700&family=Righteous&display=swap" rel="stylesheet">
     

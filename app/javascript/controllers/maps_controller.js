@@ -10,9 +10,7 @@ export default class extends Controller {
  	connect() {
    	this.checkGeolocation();
    	this.putLocation();
-   	if (typeof (google) !="undefined") {
-   		this.initMap();
-   	}
+   	
  	}
 
  	checkGeolocation() {
@@ -23,28 +21,12 @@ export default class extends Controller {
    	}
  	}
 
- 	putLocation() {	
+ 	putLocation() {	 //initMap here to make sure lat and lon are populated before calling
  		navigator.geolocation.getCurrentPosition(position => {
  			this.lat = position.coords.latitude;
-			this.latitudeTarget.innerText = this.lat;
+			this.latitudeTarget.value = this.lat;
  			this.lon = position.coords.longitude;
- 			this.longitudeTarget.innerText = this.lon;
+ 			this.longitudeTarget.value = this.lon;
  		});
- 	}
-
- 	initMap() {
- 		this.map();
- 	}
-
- 	map() {
- 		if(this._map == undefined) {
- 			this._map = new google.maps.Map(this.mapPaneTarget, {
- 				center: new google.maps.LatLng(this.latitudeTarget.value, this.longitudeTarget.value),
- 				zoom: 17
- 			})
- 		}
- 		return this._map
- 	}
-
-
+   	}
 }
