@@ -5,9 +5,6 @@ static targets = [
   "alert" 
   ]
 
-  initialize() {
-  }
-
   connect() {
   }
 

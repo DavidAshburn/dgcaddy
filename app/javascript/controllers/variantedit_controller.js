@@ -8,7 +8,7 @@ export default class extends Controller {
 	"backnine", 
 	"holepar"
 	]
-  connect() {
+  connect() { //sets display up for the card length and fills table data
   	if(this.lengthformoutTarget.value == 18)
   		this.lengthforminTarget.value = 18;
   	else
@@ -19,7 +19,7 @@ export default class extends Controller {
   	pars.map((element, index) => holes[index].value = element );
   }
 
-  changeLength() {
+  changeLength() { //hides/shows holes 10-18 on length select box change event
 	if(this.lengthforminTarget.value == 9) {
 	  this.backnineTarget.classList.toggle("hidden", true);
 	  this.lengthformoutTarget.value = 9;
@@ -29,7 +29,7 @@ export default class extends Controller {
 	}
   }
 
-  updateParString() {
+  updateParString() { //triggered on select boxes change event, sets hidden form field string
 	let list = this.holeparTargets.map(x => x.value);
 
 	if(this.lengthforminTarget.value == 9) {

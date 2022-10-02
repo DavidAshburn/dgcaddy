@@ -8,19 +8,20 @@ export default class extends Controller {
 	"backnine", 
 	"holepar"
 	]
+	
   connect() {
     this.lengthforminTarget.value = 9;
-	this.holeparTargets.forEach(x => x.value = "3");
+		this.holeparTargets.forEach(x => x.value = "3");
   }
 
   changeLength() {
-	if(this.lengthforminTarget.value == 9) {
-	  this.backnineTarget.classList.toggle("hidden", true);
-	  this.lengthformoutTarget.value = 9;
-	} else {
-	  this.backnineTarget.classList.toggle("hidden", false);
-	  this.lengthformoutTarget.value = 18;
-	}
+		if(this.lengthforminTarget.value == 9) {
+		  this.backnineTarget.classList.toggle("hidden", true);
+		  this.lengthformoutTarget.value = 9;
+		} else {
+		  this.backnineTarget.classList.toggle("hidden", false);
+		  this.lengthformoutTarget.value = 18;
+		}
   }
 
   updateParString() {
@@ -35,6 +36,4 @@ export default class extends Controller {
 	this.parformoutTarget.value = list.join('');
 	console.log(this.parformoutTarget.value);
   }
-
-
 }
