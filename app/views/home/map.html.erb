@@ -1,4 +1,4 @@
-<div data-controller="maps">
+<div data-controller="map">
   <% content_for :head do %>
     
   <% end %>
@@ -10,11 +10,23 @@
   </div>
 
   <div class="flex w-full justify-center">
-    <div id="map" class="w-full h-[400px]"></div>
+    <div id="map" class="w-full h-[80vh]"></div>
   </div>
 
-  <% content_for :head do %>
-    <%= javascript_import_module_tag "map" %>
-  <% end %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:maps_api]}&callback=initMap", async:true, defer: true %>
+ 
+  <%# javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:maps_api]}&callback=initMap", async:true, defer: true %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:maps_api] %>&callback=initMap&v=weekly" defer></script>
+
+  <script>  
+    let map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+      });
+    }
+
+    window.initMap = initMap;
+  </script>
 </div>
