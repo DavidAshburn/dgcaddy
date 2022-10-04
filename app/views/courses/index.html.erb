@@ -1,10 +1,10 @@
 <div class="flex flex-col w-full items-center md:w-2/3"> 
   <div class="flex flex-row w-full justify-center items-end">
-    <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-right">My Courses</h2>
+    <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-right">Courses</h2>
   </div>
 
   <div class="flex flex-col w-full gap-4 mt-4">
-    <% current_user.courses.each do |element| %>
+    <% @list.each do |element| %>
       <div class="flex justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200">
         <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= link_to "#{element.name}", element %></div>
         <div class="font-raleway max-w-[35%] text-center"><%= element.city %>,&nbsp<%= element.state %></div>

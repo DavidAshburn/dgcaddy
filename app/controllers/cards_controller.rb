@@ -33,6 +33,22 @@ class CardsController < ApplicationController
       if @card.save
         format.html { redirect_to card_url(@card), notice: "Card was successfully created." }
         format.json { render :show, status: :created, location: @card }
+        #CourseKey creation/increment
+        @notplayed = true;
+
+        current_user.coursekeys.each do |key|
+          if key.pointer = card_params[:course_id]
+            key.count++
+            @notplayed = false
+          end
+        end
+        if(@notplayed)
+          @key = Coursekey.new()
+          @key.pointer = card_params[:course_id]
+          @key.count = 1
+          @key.user_id = current_user.id
+          @key.save
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @card.errors, status: :unprocessable_entity }

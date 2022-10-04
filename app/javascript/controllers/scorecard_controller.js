@@ -253,6 +253,4 @@ export default class extends Controller {
   closeSubmitModal() {
     this.submitModalTarget.classList.toggle("hidden", true);
   }
-  
-
 }

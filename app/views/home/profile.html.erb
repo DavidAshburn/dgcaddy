@@ -1,5 +1,9 @@
 <div class="w-full text-right pr-12 font-righteous text-4xl leading-[4.6rem] text-zinc-800"><%= current_user.email %></div>
-<div class="flex justify-evenly items-center h-[3rem] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200 mt-8">
-  <div class="font-bold font-righteous text-lg max-w-[50%] text-center" data-maps-target="latitude"></div>
-  <div class="font-raleway max-w-[35%] text-center" data-maps-target="longitude"></div>
-</div>
+<div class="flex flex-col w-full gap-4 mt-4">
+    <% @list.each_with_index do |element, i| %>
+      <div class="flex justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200">
+        <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= @playedcourses[i] %></div>
+        <div class="font-raleway max-w-[35%] text-center">Cards:&nbsp<%= element.count %></div>
+      </div>
+    <% end %>
+  </div>

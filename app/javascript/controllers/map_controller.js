@@ -39,9 +39,6 @@ export default class extends Controller {
 	            	lng: position.coords.longitude,
 	          	};
 
-	          	
-
-
 	          	this.infoWindow.setPosition(pos);
 	          	this.infoWindow.setContent("Location found.");
 	          	this.infoWindow.open(this.map);
