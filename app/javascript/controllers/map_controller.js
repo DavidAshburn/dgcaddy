@@ -8,9 +8,22 @@ export default class extends Controller {
  	]
 
  	connect() {
+
+ 		let script = document.createElement('script');
+ 		script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCmO7h4B2Unq_S5houcwM9OsL7nAx_oHYE&callback=initMap&v=weekly";
+ 		script.async = true;
+ 		this.map;
+
+ 		window.initMap = function() {
+ 			this.map = new google.maps.Map(document.getElementById("map"), {
+    	center: { lat: -34.397, lng: 150.644 },
+    	zoom: 8,
+    	});
+  	}
+
+  	document.head.appendChild(script);
+
    	this.checkGeolocation();
-   	this.putLocation();
-   	
  	}
 
  	checkGeolocation() {

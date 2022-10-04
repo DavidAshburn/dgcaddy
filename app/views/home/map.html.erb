@@ -5,28 +5,11 @@
   <div class="w-full text-right pr-12 font-righteous text-4xl leading-[4.6rem] text-zinc-800"><%= current_user.email %></div>
 
   <div class="flex justify-evenly items-center h-[3rem] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200 mt-8">
-    <div class="font-bold font-righteous text-lg max-w-[50%] text-center" data-maps-target="latitude"></div>
-    <div class="font-raleway max-w-[35%] text-center" data-maps-target="longitude"></div>
+    <div class="font-bold font-righteous text-lg max-w-[50%] text-center" data-map-target="latitude"></div>
+    <div class="font-raleway max-w-[35%] text-center" data-map-target="longitude"></div>
   </div>
 
   <div class="flex w-full justify-center">
     <div id="map" class="w-full h-[80vh]"></div>
   </div>
-
- 
-  <%# javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:maps_api]}&callback=initMap", async:true, defer: true %>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:maps_api] %>&callback=initMap&v=weekly" defer></script>
-
-  <script>  
-    let map;
-
-    function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
-      });
-    }
-
-    window.initMap = initMap;
-  </script>
 </div>
