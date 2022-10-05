@@ -4,10 +4,8 @@ class CreateCourses < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :city
       t.string :state
-      t.integer :user_id
 
       t.timestamps
     end
-    add_index :courses, :user_id
   end
 end

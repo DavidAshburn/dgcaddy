@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :cards, :variants, :courses
   resources :coursekeys, only: [:create]
+  resources :discs, only: [:create]
   devise_for :users
   root 'home#index'
   get 'home/profile'
