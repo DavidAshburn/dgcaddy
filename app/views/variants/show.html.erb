@@ -46,7 +46,7 @@
   </div>
 
   <div class="flex flex-col w-full gap-4 mt-4">
-    <% @variant.cards.each do |element| %>
+    <% @cardlist.each do |element| %>
       <div class="flex justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200">
         
         <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= link_to "#{element.created_at.strftime("%m/%d/%y")}", element %></div>

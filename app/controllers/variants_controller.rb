@@ -5,6 +5,7 @@ class VariantsController < ApplicationController
   def show
     @course = Course.find(@variant.course_id)
     @pars = @variant.pars.split('')
+    @cardlist = Card.all.where("user_id = #{current_user.id}")
   end
 
   # GET /variants/new
