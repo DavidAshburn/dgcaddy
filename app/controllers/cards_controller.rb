@@ -37,14 +37,14 @@ class CardsController < ApplicationController
         @notplayed = true;
 
         current_user.coursekeys.each do |key|
-          if key.pointer = card_params[:course_id]
-            key.count++
+          if key.pointer = @card.course_id
+            key.count = key.count + 1
             @notplayed = false
           end
         end
         if(@notplayed)
           @key = Coursekey.new()
-          @key.pointer = card_params[:course_id]
+          @key.pointer = @card.course_id
           @key.count = 1
           @key.user_id = current_user.id
           @key.save
@@ -87,6 +87,6 @@ class CardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def card_params
-      params.require(:card).permit(:score, :shots, :length, :user_id, :course_id, :variant_id)
+      params.require(:card).permit(:score, :shots, :length, :user_id, :course_id, :variant_id, :count, :pointer)
     end
 end
