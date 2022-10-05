@@ -15,8 +15,7 @@ export default class extends Controller {
     "shotModal",
     "basketModal",
     "submitModal",
-    "removeMe",
-    "showShots"
+    "removeMe"
   ]
 
   connect() {
@@ -115,7 +114,6 @@ export default class extends Controller {
       }
 
     }
-    this.showShotsTarget.innerText = this.shots.join('');
   }
 
   openBasketModal() {
