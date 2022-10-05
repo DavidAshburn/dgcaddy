@@ -8,10 +8,6 @@ export default class extends Controller {
  	]
 
  	connect() {
-
- 		let script = document.createElement('script');
- 		script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCmO7h4B2Unq_S5houcwM9OsL7nAx_oHYE&callback=initMap";
- 		script.async = true;
  		this.map;
  		this.infoWindow;
  		this.pos;

@@ -1,7 +1,5 @@
 <div data-controller="map">
-  <% content_for :head do %>
-    
-  <% end %>
+  
   <div class="w-full text-right pr-12 font-righteous text-4xl leading-[4.6rem] text-zinc-800"><%= current_user.email %></div>
 
   <div class="flex justify-evenly items-center h-[3rem] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200 mt-8">
@@ -12,4 +10,16 @@
   <div class="flex w-full justify-center">
     <div id="map" class="w-full h-[80vh]"></div>
   </div>
+  <% if Rails.env.development? %>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:maps_api]%>&callback=initMap"
+      defer>
+    </script>
+  <% end %>
+  <% if Rails.env.production? %>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAPS_API'] %>&callback=initMap"
+      defer>
+    </script>
+  <% end %>
 </div>
