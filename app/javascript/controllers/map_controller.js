@@ -52,7 +52,7 @@ export default class extends Controller {
   		});
 		}
 
-  	document.head.appendChild(script);
+
   	window.initMap = initMap;
  	}
 

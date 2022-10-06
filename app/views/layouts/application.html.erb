@@ -11,8 +11,7 @@
     <%= javascript_importmap_tags %>
     <%= yield(:head) %>
     <script src="https://kit.fontawesome.com/5b70548259.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?&family=Lato:wght@400;700&family=Monoton&family=Questrial&family=Raleway:wght@300;400;600;700&family=Righteous&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?&family=Lato:wght@400;700&family=Monoton&family=Questrial&family=Raleway:wght@300;400;600;700&family=Righteous&display=swap" rel="stylesheet">    
   </head>
 
   <% if notice %>
@@ -27,9 +26,8 @@
     </div>
   <% end %>
 
-  <!-- bg-oversize bg-gradient-to-tr from-sky-400 via-cyan-300 to-teal-200 -->
-  <body class="bg-white">
-    <main class="container mt-10 px-5 flex flex-col items-center">
+  <body>
+    <main class="container mt-5 p-5 flex flex-col items-center">
       <%= yield %>
     </main>
   </body>
