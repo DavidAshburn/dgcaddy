@@ -10,6 +10,7 @@ all_discs = JSON.parse(File.read(Rails.root.join('db/discs.json')))
 
 all_discs.each do |disc|
 	Disc.create(
+		user_id: disc["user_id"],
 		manufacturer: disc['Manufacturer'],
 		name: disc['Name'],
 		speed: disc['Speed'],

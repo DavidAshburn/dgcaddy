@@ -5,4 +5,9 @@ class DiscsController < ApplicationController
     @disc.save
   end
 
-end
+  private
+
+    # Only allow a list of trusted parameters through.
+    def disckey_params
+      params.require(:disc, :manufacturer, :name, :speed, :glide, :turn, :fade, :user_id).permit(:diameter, :height, :rimdepth, :rimwidth)
+    end

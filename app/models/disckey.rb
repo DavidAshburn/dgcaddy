@@ -1,0 +1,2 @@
+class Disckey < ApplicationRecord
+end
