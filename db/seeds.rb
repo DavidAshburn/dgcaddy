@@ -34,3 +34,45 @@ all_courses.each do |course|
 		state: course['State']
 		)
 end
+
+Variant.create(
+	name: "Front 9",
+	length: 9,
+	pars: "333433343",
+	course_id: 1
+	)
+
+Variant.create(
+	name: "Back 9",
+	length: 9,
+	pars: "433343333",
+	course_id: 1
+	)
+
+Variant.create(
+	name: "Green to Green",
+	length: 18,
+	pars: "333433343433343333",
+	course_id: 1
+	)
+
+User.create(
+	email:"disc@golf.com",
+	password: "discgolf",
+	password_confirmation: "discgolf"
+	)
+
+Card.create(
+	score: 33,
+	shots: "42B031A021A021A0211A05211A0321B0321A031C0",
+	length: 9,
+	user_id: 1,
+	course_id: 1,
+	variant_id: 1,
+	)
+
+Coursekey.create(
+	pointer: 1,
+	count: 1,
+	user_id: 1
+	)

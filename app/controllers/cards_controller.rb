@@ -43,7 +43,7 @@ class CardsController < ApplicationController
           @key = Coursekey.new()
           @key.pointer = @card.course_id
           @key.count = 1
-          @key.user_id = current_user.id
+          @key.user_id = @card.user_id
           @key.save
         end
       else
