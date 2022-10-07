@@ -79,7 +79,7 @@ export default class extends Controller {
 
   drive(array, match, target) { //percentages for different Drives substats, puts count(match)/length to target.innerText
     if(array) {
-      target.innerText = `${(this.count(array, match)/parseFloat(this.length)).toFixed(2) * 100}%`;
+      target.innerText = `${((this.count(array, match)/parseFloat(this.length)) * 100).toFixed(0)}%`;
     }
     else
       target.innerText = "N/A";
@@ -88,7 +88,7 @@ export default class extends Controller {
   drivingPercent() { // (length - (bad drives)) / length, drive() for substats
     let driveArray = this.shots.filter((shot, index, shots) => index == 0 || shots[index-1] == 0); //gets 1st and after baskets
     let drivePercent = (this.length - (this.count(driveArray, '5') + this.count(driveArray, '3'))) / this.length;
-    this.fairwayPercentageTarget.innerText = `${drivePercent.toFixed(2) * 100}%`;
+    this.fairwayPercentageTarget.innerText = `${(drivePercent * 100).toFixed(0)}%`;
 
     this.drive(driveArray, '5', this.fairwayPTarget);
     this.drive(driveArray, '4', this.fairway4Target);
@@ -103,10 +103,16 @@ export default class extends Controller {
       let tapins = this.count(followups, 'A');
       let cOneB = this.count(followups, 'B');
       let cOneC = this.count(followups,'C');
-      let cOnex = (cOneB + cOneC) / (followups.length - tapins);
+      let cOnex = 0;
       let misses = followups.length - cOneC - cOneB - tapins;
+
+      if (followups.length == tapins){
+        cOnex = "N/A"
+      } else {
+        cOnex = (cOneB + cOneC) / (followups.length - tapins);
+      }
       
-      this.cOneXPercentageTarget.innerText = `${cOnex.toFixed(2) * 100}%`;
+      this.cOneXPercentageTarget.innerText = `${(cOnex * 100).toFixed(0) }%`;
       this.cOneTapTarget.innerText = tapins;
       this.cOneMidTarget.innerText = cOneB;
       this.cOneFarTarget.innerText = cOneC;
@@ -130,7 +136,7 @@ export default class extends Controller {
       let cTwo = cTwoA + cTwoB + cTwoC;
 
       let cTwoPerc = cTwo / parseFloat(this.count(this.shots, '2'));
-      this.cTwoPercentageTarget.innerText = `${cTwoPerc.toFixed(2) * 100}%`
+      this.cTwoPercentageTarget.innerText = `${(cTwoPerc * 100).toFixed(0)}%`
       this.cTwoNearTarget.innerText = cTwoA;
       this.cTwoMidTarget.innerText = cTwoB;
       this.cTwoFarTarget.innerText = cTwoC;

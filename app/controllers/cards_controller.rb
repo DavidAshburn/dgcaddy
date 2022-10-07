@@ -3,7 +3,8 @@ class CardsController < ApplicationController
 
   # GET /cards or /cards.json
   def index
-    @cards = Card.all
+    @cards = Card.where(user_id: current_user.id)
+    @courses = current_user.coursekeys.map{ |key| Course.find_by(id: key.pointer) }
   end
 
   # GET /cards/1 or /cards/1.json

@@ -24,7 +24,7 @@ export default class extends Controller {
 
 	  	this.locationButton = document.createElement("button");
 
-		  this.locationButton.textContent = "Current Location";
+		this.locationButton.textContent = "Current Location";
 	  	this.locationButton.classList.add("btn-green", "text-lg", "mt-2");
 	  	this.map.controls[google.maps.ControlPosition.TOP_CENTER].push(this.locationButton);
 	  	this.locationButton.addEventListener("click", () => {
@@ -59,12 +59,12 @@ export default class extends Controller {
  	}
 
  	handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  	infoWindow.setPosition(pos);
-  	infoWindow.setContent(
+  	this.infoWindow.setPosition(pos);
+  	this.infoWindow.setContent(
     	browserHasGeolocation
       	? "Error: The Geolocation service failed."
       	: "Error: Your browser doesn't support geolocation."
   	);
-  	infoWindow.open(map);
+  	this.infoWindow.open(map);
 	}
 }
