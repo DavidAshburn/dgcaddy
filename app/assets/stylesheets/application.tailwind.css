@@ -46,6 +46,14 @@
   .inset-shadow {
     @apply shadow-[inset_0_-2px_4px_rgba(255,255,255,0.5)];
   }
+
+  .glass-box {
+    @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-b from-slate-200/40 to-slate-400/40 rounded-full border-t border-l border-gray-200 inset-shadow;
+  }
+
+  .glass-button {
+    @apply rounded-full bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-b from-slate-400/20 to-zinc-600/20 rounded-full border-t border-l border-gray-200 inset-shadow;
+  }
 }
 
 @keyframes bg-animate {

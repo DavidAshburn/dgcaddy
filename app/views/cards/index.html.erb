@@ -9,7 +9,7 @@
 
   <div class="flex flex-col w-full gap-4 mt-4">
     <% @courses.each do |course| %>
-      <% @cardbox = @cards.filter(course_id: element.id) %>
+      <% @cardbox = @cards.filter{|card| card.course_id = course.id} %>
       <% @cardbox.each do |card| %>
         <div class="flex justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200">
           <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= course.name %></div>
