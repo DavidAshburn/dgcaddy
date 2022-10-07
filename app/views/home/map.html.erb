@@ -1,5 +1,9 @@
 <div data-controller="map">
-  <div class="w-full text-right pr-12 font-righteous text-4xl leading-[4.6rem] text-zinc-800"><%= current_user.email %></div>
+  <div class="flex flex-col items-center font-righteous text-4xl -mt-4">
+      <div class="flex flex-row w-full justify-center text-center">
+        <h2 class="font-bold text-6xl font-righteous text-zinc-800">Map</h2>
+      </div>
+  </div>
 
   <div class="flex justify-evenly items-center h-[3rem] bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200 mt-8">
     <div class="font-bold font-righteous text-lg max-w-[50%] text-center" data-map-target="latitude"></div>

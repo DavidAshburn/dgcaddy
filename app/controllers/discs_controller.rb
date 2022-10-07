@@ -65,6 +65,6 @@ class DiscsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def disc_params
-      params.require(:disc, :maker, :model, :user_id).permit(:weight, :diameter, :height, :depth, :rimdiameter, :rimthickness, :rimratio, :rimconfig, :flexibility, :speed, :glide, :turn, :fade)
+      params.require(:disc).permit(:weight, :maker, :model, :user_id, :diameter, :height, :depth, :rimdiameter, :rimthickness, :rimratio, :rimconfig, :flexibility, :speed, :glide, :turn, :fade)
     end
 end

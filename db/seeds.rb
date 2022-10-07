@@ -25,14 +25,20 @@ all_discs.each do |disc|
 		)
 end
 
+User.create(
+	email:"disc@golf.com",
+	password: "discgolf",
+	password_confirmation: "discgolf"
+	)
+
 all_courses = JSON.parse(File.read(Rails.root.join('db/courses.json')))
 
 all_courses.each do |course|
 	Course.create(
-		user_id: 0,
 		name: course['Name'],
 		city: course['City'],
-		state: course['State']
+		state: course['State'],
+		user_id: 0
 		)
 end
 
@@ -55,12 +61,6 @@ Variant.create(
 	length: 18,
 	pars: "333433343433343333",
 	course_id: 1
-	)
-
-User.create(
-	email:"disc@golf.com",
-	password: "discgolf",
-	password_confirmation: "discgolf"
 	)
 
 Card.create(
