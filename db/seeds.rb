@@ -29,6 +29,7 @@ all_courses = JSON.parse(File.read(Rails.root.join('db/courses.json')))
 
 all_courses.each do |course|
 	Course.create(
+		user_id: 0,
 		name: course['Name'],
 		city: course['City'],
 		state: course['State']
