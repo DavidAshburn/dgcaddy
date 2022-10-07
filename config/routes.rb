@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :discs
   resources :cards, :variants, :courses
   resources :coursekeys, only: [:create]
   resources :disckeys, only: [:create, :destroy]

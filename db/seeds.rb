@@ -6,21 +6,22 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-all_discs = JSON.parse(File.read(Rails.root.join('db/discs.json')))
+all_discs = JSON.parse(File.read(Rails.root.join('db/pdga.json')))
 
 all_discs.each do |disc|
 	Disc.create(
 		user_id: disc["user_id"],
-		manufacturer: disc['Manufacturer'],
-		name: disc['Name'],
-		speed: disc['Speed'],
-		glide: disc['Glide'],
-		turn: disc['Turn'],
-		fade: disc['Fade'],
+		maker: disc['Maker'],
+		model: disc['Model'],
+		weight: disc['Weight'],
 		diameter: disc['Diameter'],
 		height: disc['Height'],
-		rimdepth: disc['RimDepth'],
-		rimwidth: disc['RimWidth']
+		depth: disc['Depth'],
+		rimdiameter: disc['RimDiameter'],
+		rimthickness: disc['RimThickness'],
+		rimratio: disc['RimRatio'],
+		rimconfig: disc['RimConfig'],
+		flexibility: disc['Flexibility']
 		)
 end
 

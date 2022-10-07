@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_06_212511) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_190928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,19 +53,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_212511) do
   end
 
   create_table "discs", force: :cascade do |t|
-    t.string "manufacturer"
-    t.string "name"
+    t.string "maker"
+    t.string "model"
+    t.float "weight"
+    t.float "diameter"
+    t.float "height"
+    t.float "depth"
+    t.float "rimdiameter"
+    t.float "rimthickness"
+    t.float "rimratio"
+    t.float "rimconfig"
+    t.float "flexibility"
     t.float "speed"
     t.float "glide"
     t.float "turn"
     t.float "fade"
-    t.float "diameter"
-    t.float "height"
-    t.float "rimdepth"
-    t.float "rimwidth"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.index ["user_id"], name: "index_discs_on_user_id"
   end
 
