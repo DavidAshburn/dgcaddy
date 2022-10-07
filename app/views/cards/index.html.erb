@@ -3,17 +3,19 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Cards</h1>
+  <div class="flex flex-col items-center"> 
+    <div class="flex flex-row w-full justify-center">
+      <h1 class="font-bold sm:text-8xl text-6xl font-righteous text-zinc-800">Cards</h1>
+    </div>
   </div>
 
-  <div class="flex flex-col w-full gap-4 mt-4">
+  <div class="flex flex-col w-full gap-4 mt-8">
     <% @courses.each do |course| %>
       <% @cardbox = @cards.filter{|card| card.course_id = course.id} %>
       <% @cardbox.each do |card| %>
-        <div class="flex justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200">
+        <div class="flex justify-evenly items-center glass-box">
           <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= course.name %></div>
-          <div class="font-bold font-righteous text-lg max-w-[50%] text-center text-sky-300 text-underline"><%= link_to "#{card.created_at.strftime("%m/%d/%y")}", card %></div>
+          <div class="font-bold font-righteous text-lg max-w-[50%] text-center text-sky-500 text-underline"><%= link_to "#{card.created_at.strftime("%m/%d/%y")}", card %></div>
           <div class="font-raleway max-w-[35%] text-center"><%= card.score %></div>
         </div>
       <% end %>

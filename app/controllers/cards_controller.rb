@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: %i[ show edit update destroy ]
+  before_action :set_card, only: %i[ show update destroy ]
 
   # GET /cards or /cards.json
   def index
@@ -20,10 +20,6 @@ class CardsController < ApplicationController
     @variant = Variant.find_by(id: params[:variant_id])
     @course = Course.find_by(id: @variant.course_id)
     @pars = @variant.pars.split('')
-  end
-
-  # GET /cards/1/edit
-  def edit
   end
 
   # POST /cards or /cards.json

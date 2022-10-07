@@ -3,6 +3,7 @@
     <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-zinc-800"><%= @variant.name %></h2>
   </div>
   <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800"><%= @course.name %>,&nbsp<%= @variant.length %>&nbspHoles</h3>
+  <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800">Par&nbsp<%= @totalpar %></h3>
 
   <div class="flex flex-col w-full mt-4">
     
@@ -25,7 +26,7 @@
     </div>
 
     <% if @variant.length == 18 %>
-      <div class="flex flex-col justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200 mt-4">
+      <div class="flex flex-col justify-evenly items-center mt-4 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200 mt-4">
 
       <div class=" flex justify-evenly align-center w-full">
         <% (10..18).each do |x|%>
@@ -47,10 +48,17 @@
 
   <div class="flex flex-col w-full gap-4 mt-4">
     <% @cardlist.each do |element| %>
-      <div class="flex justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200">
+      <div class="flex justify-evenly items-center glass-box">
         
         <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= link_to "#{element.created_at.strftime("%m/%d/%y")}", element %></div>
         <div class="font-raleway max-w-[35%] text-center"><%= element.score %></div>
+        <% @diff = element.score - @totalpar %>
+        <% if @diff > 0 %>
+          <div class="font-righteous max-w-[35%] text-xl text-center text-amber-500">+<%= @diff %></div>
+        <% else %>
+          <div class="font-righteous max-w-[35%] text-xl text-center text-green-500"><%= @diff %></div>
+        <% end %>
+
       </div>
     <% end %>
   </div>

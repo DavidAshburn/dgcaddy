@@ -5,7 +5,7 @@
 
   <div class="flex flex-col w-full gap-4 mt-4">
     <% @list.each do |element| %>
-      <div class="flex justify-between items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200 px-6 lg-px-24">
+      <div class="flex justify-between items-center px-6 glass-box">
         <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= link_to "#{element.name}", element %></div>
         <div class="font-raleway max-w-[35%] text-center"><%= element.city %>,&nbsp<%= element.state %></div>
       </div>

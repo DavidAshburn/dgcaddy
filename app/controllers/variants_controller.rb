@@ -6,6 +6,10 @@ class VariantsController < ApplicationController
     @course = Course.find(@variant.course_id)
     @pars = @variant.pars.split('')
     @cardlist = Card.all.where(user_id: current_user.id, variant_id: @variant.id)
+    @totalpar = 0
+    @pars.each do |x|
+      @totalpar += x.to_i
+    end
   end
 
   # GET /variants/new
