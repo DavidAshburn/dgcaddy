@@ -7,15 +7,9 @@ class DiscsController < ApplicationController
   end
 
   def search
-    @mod = "Absolutelynotinthelist"
-    @mak = "Alsodefinitelynotinthelist"
-    if(params[:fmodel] != "")
-      @mod = params[:fmodel].downcase
-    end
-    if(params[:fmaker] != "")
-      @mak = params[:fmaker].downcase
-    end
-    @discs = Disc.where("LOWER(maker) LIKE ?", "%" + @mak + "%").or(Disc.where("LOWER(model) LIKE ?", "%" + @mod + "%"))
+    params[:fmodel] != "" ? @mod = params[:fmodel].downcase : @mod = "Absolutelynotinthelist"
+    params[:fmaker] != "" ? @mak = params[:fmaker].downcase : @mak = "Alsodefinitelynotinthelist"
+    @discs = Disc.where("LOWER(maker) LIKE ?", "%" + @mak + "%").or(Disc.where("LOWER(model) LIKE ?", "%" + @mod + "%")).order('maker, model')
   end
 
   # GET /discs/1 or /discs/1.json
