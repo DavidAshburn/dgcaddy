@@ -3,7 +3,19 @@ class DiscsController < ApplicationController
 
   # GET /discs or /discs.json
   def index
-    @discs = Disc.all
+    @list = current_user.disckeys.map{|key| Disc.find_by(id:key.pointer)}
+  end
+
+  def search
+    @mod = "Absolutelynotinthelist"
+    @mak = "Alsodefinitelynotinthelist"
+    if(params[:fmodel] != "")
+      @mod = params[:fmodel].downcase
+    end
+    if(params[:fmaker] != "")
+      @mak = params[:fmaker].downcase
+    end
+    @discs = Disc.where("LOWER(maker) LIKE ?", "%" + @mak + "%").or(Disc.where("LOWER(model) LIKE ?", "%" + @mod + "%"))
   end
 
   # GET /discs/1 or /discs/1.json
@@ -17,6 +29,7 @@ class DiscsController < ApplicationController
 
   # GET /discs/1/edit
   def edit
+    @disckey = current_user.disckeys.find_by(pointer:@disc.id)
   end
 
   # POST /discs or /discs.json
@@ -65,6 +78,6 @@ class DiscsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def disc_params
-      params.require(:disc).permit(:weight, :maker, :model, :user_id, :diameter, :height, :depth, :rimdiameter, :rimthickness, :rimratio, :rimconfig, :flexibility, :speed, :glide, :turn, :fade)
+      params.require(:disc).permit(:weight, :maker, :model, :user_id, :diameter, :height, :depth, :rimdiameter, :rimthickness, :rimratio, :rimconfig, :flexibility, :speed, :glide, :turn, :fade, :fmaker, :fmodel)
     end
 end

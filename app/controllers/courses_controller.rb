@@ -3,9 +3,8 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
-    #only show custom courses created by the user
-    #@list = Course.where(user_id: 0).or(Course.where(user_id: current_user.id))
-    @list = Course.all
+    #only show custom courses if created by the user
+    @list = Course.where(user_id: 0).or(Course.where(user_id: current_user.id))
   end
 
   # GET /courses/1 or /courses/1.json

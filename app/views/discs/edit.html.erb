@@ -4,6 +4,6 @@
   <%= render "form", disc: @disc %>
 
   <%= link_to "Show this disc", @disc, class: "btn-blue" %>
-  <%= link_to "Back to discs", discs_path, class: "btn-blue" %>
-  <%= button_to 'Destroy this disc', disc_path(@disc), method: :delete, class: "btn-grey" %>
+  <%= link_to "Discbag", home_discbag_path, class: "btn-blue" %>
+  <%= button_to 'Remove this disc', disckey_path(@disckey), method: :delete, class: "btn-grey" %>
 </div>

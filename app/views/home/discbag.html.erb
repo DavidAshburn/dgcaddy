@@ -5,19 +5,31 @@
     </div>
   </div>
 
-  <div class="flex flex-col w-full gap-4 mt-4">
-    <% @list.each do |element| %>
-      <div class="flex align-center justify-center glass-box">
-        <div class="font-bold font-righteous text-lg text-center w-5/12"><%= element.maker %></div>
-        <div class="font-raleway text-center w-5/12"><%= link_to "#{element.model}", element %></div>
-      </div>
-    <% end %>
-  </div>
+  <div class="flex flex-col glass-box w-full">
+    <!--
+     turbo frame for discbag, 
+     populated by current_user.disckeys
+     updated whenever we add a disc to the bag
+    -->
+    <turbo-frame id="discbag">
 
-  <div class="flex justify-start glass-box">
-    <input type="text" id="findmaker" data-discbag-target="findmaker" class="rounded-md font-righteous text-lg">
-    <input type="text" id="findmodel" data-discbag-target="findmodel" class="rounded-md font-righteous text-lg">
+    </turbo-frame>
   </div>
+  
+
+  <form class="flex flex-col justify-center glass-box" action="/dsearch">
+    <div class="flex justify-center gap-4 px-6 py-2">
+      <h3>Maker</h3>
+      <h3>Model</h3>
+    </div>
+    <div class="flex justify-center gap-4 px-6 pb-2">
+      <input type="text" id="findmaker" name="fmaker" data-discbag-target="findmaker" class="rounded-md font-righteous text-lg text-right">
+      <input type="text" id="findmodel" name="fmodel" data-discbag-target="findmodel" class="rounded-md font-righteous text-lg">
+    </div>
+    <div class="flex justify-center gap-4 px-6 pb-2">
+      <button class="btn-green w-1/4" type="submit">Find</button>
+    </div>
+  </form>
 
   <div class="flex flex-col glass-box w-full">
     <!--
@@ -29,16 +41,7 @@
     </turbo-frame>
   </div>
 
-  <div class="flex flex-col glass-box w-full">
-    <!--
-     turbo frame for discbag, 
-     populated by current_user.disckeys
-     updated whenever we add a disc to the bag
-    -->
-    <turbo-frame id="discbag">
-
-    </turbo-frame>
-  </div>
+  
 
   <div class="flex flex-col glass-box w-full">
     <!--

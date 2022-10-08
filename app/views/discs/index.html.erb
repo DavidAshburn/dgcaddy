@@ -1,14 +1,15 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Discs</h1>
-    <%= link_to 'New disc', new_disc_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+<turbo-frame id="discbag">
+  <div class="flex flex-col w-full gap-4 mt-4">
+    <% @list.each do |element| %>
+      <div class="flex justify-between items-center px-6 glass-box">
+        <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= element.maker %></div>
+        <div class="font-raleway max-w-[35%] text-center"><%= link_to "#{element.model}", element %></div>
+      </div>
+    <% end %>
   </div>
+</turbo-frame>
 
-  <div id="discs" class="min-w-full">
-    <%= render @discs %>
-  </div>
-</div>
+<turbo-frame id="disclist">
+  
+  
+</turbo-frame>

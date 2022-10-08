@@ -4,7 +4,15 @@ class DisckeysController < ApplicationController
   # POST /cards or /cards.json
   def create
     @disckey = Disckey.new(disckey_params)
-    @disckey.save
+
+    respond_to do |format|
+      if @disckey.save
+        format.json { render :show, status: :created, location: @course }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

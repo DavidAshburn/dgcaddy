@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   get 'home/profile'
   get 'home/map'
   get 'home/discbag'
-  get 'discs/turboadd'
+  get 'dsearch', to: 'discs#search'
 
 end

@@ -1,87 +1,10 @@
-<div id="<%= dom_id disc %>">
+<div id="<%= dom_id disc %>" class="flex glass-box gap-4 px-10">
   <p class="my-5">
     <strong class="block font-medium mb-1">Maker:</strong>
     <%= disc.maker %>
   </p>
-
   <p class="my-5">
     <strong class="block font-medium mb-1">Model:</strong>
     <%= disc.model %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Weight:</strong>
-    <%= disc.weight %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Diameter:</strong>
-    <%= disc.diameter %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Height:</strong>
-    <%= disc.height %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Depth:</strong>
-    <%= disc.depth %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Rimdiameter:</strong>
-    <%= disc.rimdiameter %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Rimthickness:</strong>
-    <%= disc.rimthickness %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Rimratio:</strong>
-    <%= disc.rimratio %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Rimconfig:</strong>
-    <%= disc.rimconfig %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Flexibility:</strong>
-    <%= disc.flexibility %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Speed:</strong>
-    <%= disc.speed %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Glide:</strong>
-    <%= disc.glide %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Turn:</strong>
-    <%= disc.turn %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Fade:</strong>
-    <%= disc.fade %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= disc.user_id %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this disc", disc, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this disc', edit_disc_path(disc), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
 </div>
