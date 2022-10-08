@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   #keys have course id's and the number of cards played there, for sorting and displaying courses
   has_many :coursekeys, dependent: :destroy
+
+  has_many :disckeys, dependent: :destroy
 end

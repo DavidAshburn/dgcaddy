@@ -6,10 +6,10 @@
 
   <div class="flex flex-col w-full gap-4 mt-4">
     <% @course.variants.each do |element| %>
-      <div class="flex justify-evenly items-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg border border-gray-200">
+      <div class="flex align-center justify-center glass-box">
         
-        <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= link_to "#{element.name}", element %></div>
-        <div class="font-raleway max-w-[35%] text-center"><%= element.length %>&nbspHoles</div>
+        <div class="font-bold font-righteous text-lg text-center w-5/12"><%= link_to "#{element.name}", element %></div>
+        <div class="font-raleway text-center w-5/12"><%= element.length %>&nbspHoles</div>
       </div>
     <% end %>
   </div>

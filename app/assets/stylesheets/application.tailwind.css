@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer utilities {
-  .text-shadow {
-    text-shadow: 2px 2px 4px black;
-  }
-  .text-shadow-md {
-    text-shadow: 4px 4px 8px black;
-  }
-  .text-shadow-lg {
-    text-shadow: 15px 15px 30px black;
-  }
-  .text-shadow-none {
-    text-shadow: none;
-  }
-}
-
 @layer components {
   .btn-yellow {
     @apply transition-all py-2 px-4 min-w-fit text-center bg-gradient-to-t from-yellow-400 hover:from-yellow-500 via-amber-200 hover:via-amber-300 to-orange-100 hover:to-orange-200 rounded-full font-raleway font-bold text-gray-700 focus:text-white focus:border-2 focus:border-white shadow-[inset_0_-2px_4px_rgba(255,255,255,0.5)];
@@ -48,26 +32,10 @@
   }
 
   .glass-box {
-    @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-b from-slate-200/40 to-slate-400/40 rounded-full border-t border-l border-gray-200 inset-shadow;
+    @apply bg-clip-padding backdrop-filter bg-gradient-to-b from-slate-100 to-slate-300 rounded-full border-t border-l border-gray-200 inset-shadow;
   }
 
   .glass-button {
     @apply rounded-full bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-b from-slate-400/20 to-zinc-600/20 rounded-full border-t border-l border-gray-200 inset-shadow;
   }
-}
-
-@keyframes bg-animate {
-  0% {
-    background-position: left;
-  }
-  50% {
-    background-position: right;
-  }
-  100% {
-    background-position: left;
-  }
-}
-
-body {
-  animation: bg-animate 120s infinite;
 }

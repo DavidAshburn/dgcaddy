@@ -1,15 +1,70 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @disc %>
-
-    <%= link_to 'Edit this disc', edit_disc_path(@disc), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this disc', disc_path(@disc), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to 'Back to discs', discs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="flex flex-col items-center"> 
+  <div class="flex flex-row w-full justify-center">
+    <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-zinc-800"><%= @disc.model %></h2>
   </div>
+  <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800"><%= @disc.maker %></h3>
+
+  <div class="glass-box w-11/12 flex flex-col p-2 gap-1">
+    
+    <div class="flex w-11/12">
+      <div class="flex w-1/2">
+        Weight:&nbsp<%= @disc.weight %>
+      </div>
+      <div class="flex w-1/2">
+        Diameter:&nbsp<%= @disc.diameter %>
+      </div>
+    </div>
+    <div class="flex w-11/12">
+      <div class="flex w-1/2">
+        Height:&nbsp<%= @disc.height %>
+      </div>
+      <div class="flex w-1/2">
+        Rim&nbspDepth:&nbsp<%= @disc.depth %>
+      </div>
+    </div>
+    <div class="flex w-11/12">
+      <div class="flex w-1/2">
+        Inner&nbspDiameter:&nbsp<%= @disc.rimdiameter %>
+      </div>
+      <div class="flex w-1/2">
+        Rim&nbspThickness:&nbsp<%= @disc.rimthickness %>
+      </div>
+    </div>
+    <div class="flex w-11/12">
+      <div class="flex w-1/2">
+        Rim&nbspRatio:&nbsp<%= @disc.rimratio %>
+      </div>
+      <div class="flex w-1/2">
+        Rim&Configuration:&nbsp<%= @disc.rimconfig %>
+      </div>
+    </div>
+    <div class="flex w-11/12 justify-center">
+      <div class="flex w-1/2">
+        Flexibility:&nbsp<%= @disc.flexibility %>
+      </div>
+    </div>
+    <div class="flex w-11/12">
+      <div class="flex w-1/2">
+        Speed:&nbsp<%= @disc.speed %>
+      </div>
+      <div class="flex w-1/2">
+        Glide:&nbsp<%= @disc.glide %>
+      </div>
+    </div>
+    <div class="flex w-11/12">
+      <div class="flex w-1/2">
+        Turn:&nbsp<%= @disc.turn %>
+      </div>
+      <div class="flex w-1/2">
+        Fade:&nbsp<%= @disc.fade %>
+      </div>
+    </div>
+
+  </div>
+
+<div class="glass-box w-full p-4">
+  <%= link_to 'Edit this disc', edit_disc_path(@disc), class: "btn-yellow" %>
+  <%= link_to 'Discbag', home_discbag_path, class: "btn-blue" %>
+</div>
+
 </div>

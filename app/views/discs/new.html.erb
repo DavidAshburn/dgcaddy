@@ -1,7 +1,22 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New disc</h1>
+<turbo-frame id="discadd">
+  <%= form_with(model: disc, class: "contents") do |form| %>
+    <% if disc.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(disc.errors.count, "error") %> prohibited this disc from being saved:</h2>
 
-  <%= render "form", disc: @disc %>
+        <ul>
+          <% disc.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <%= link_to 'Back to discs', discs_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-</div>
+    <div class="flex w-full justify-center gap-20">
+      <%= form.text_field :maker, placeholder: "Maker", class: "rounded-md font-righteous text-lg" %>
+      <%= form.text_field :model, placeholder: "Model", class: "rounded-md font-righteous text-lg" %>
+      <%= form.hidden_field :user_id, value:current_user.id %>
+      <%= form.submit "Add Disc", class: "btn-green" %>
+    </div>
+  <% end %>
+</turbo-frame>

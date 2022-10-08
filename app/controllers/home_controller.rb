@@ -15,4 +15,8 @@ class HomeController < ApplicationController
 
   def map
   end
+
+  def discbag
+    @list = current_user.disckeys.map{|key| Disc.find_by(id:key.pointer)}
+  end
 end
