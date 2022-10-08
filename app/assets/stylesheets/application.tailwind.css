@@ -32,7 +32,7 @@
   }
 
   .glass-box {
-    @apply bg-clip-padding backdrop-filter bg-gradient-to-b from-slate-100 to-slate-300 rounded-full border-t border-l border-gray-200 inset-shadow;
+    @apply rounded-full bg-clip-padding backdrop-filter bg-gradient-to-b from-slate-100 to-slate-300 border-t border-l border-gray-200 inset-shadow;
   }
 
   .glass-button {

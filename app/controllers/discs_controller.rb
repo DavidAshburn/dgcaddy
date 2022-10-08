@@ -4,12 +4,28 @@ class DiscsController < ApplicationController
   # GET /discs or /discs.json
   def index
     @list = current_user.disckeys.map{|key| Disc.find_by(id:key.pointer)}
-  end
-
-  def search
-    params[:fmodel] != "" ? @mod = params[:fmodel].downcase : @mod = "Absolutelynotinthelist"
-    params[:fmaker] != "" ? @mak = params[:fmaker].downcase : @mak = "Alsodefinitelynotinthelist"
-    @discs = Disc.where("LOWER(maker) LIKE ?", "%" + @mak + "%").or(Disc.where("LOWER(model) LIKE ?", "%" + @mod + "%")).order('maker, model')
+    
+    if params[:fmaker].present? 
+      @mak = params[:fmaker].downcase
+    end
+    
+    if params[:fmodel].present? 
+      @mod = params[:fmodel].downcase
+    end
+    
+    if @mod
+      if @mak
+        @discs = Disc.where("LOWER(maker) LIKE ?", "%" + @mak + "%").or(Disc.where("LOWER(model) LIKE ?", "%" + @mod + "%")).order('maker, model')
+      else
+        @discs = Disc.where("LOWER(model) LIKE ?", "%" + @mod + "%").order('maker, model')
+      end
+    else
+      if @mak
+        @discs = Disc.where("LOWER(maker) LIKE ?", "%" + @mak + "%").order('maker, model')
+      else
+        @discs = Disc.find_by(model: "Zone")
+      end
+    end
   end
 
   # GET /discs/1 or /discs/1.json

@@ -1,15 +1,34 @@
-<turbo-frame id="discbag">
-  <div class="flex flex-col w-full gap-4 mt-4">
-    <% @list.each do |element| %>
-      <div class="flex justify-between items-center px-6 glass-box">
-        <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= element.maker %></div>
-        <div class="font-raleway max-w-[35%] text-center"><%= link_to "#{element.model}", element %></div>
+<div class="hidden">
+  <turbo-frame id="discbag">
+    <div class="flex flex-col w-full gap-4 mt-4">
+      <% @list.each do |element| %>
+        <div class="flex justify-between items-center px-6 glass-box">
+          <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= element.maker %></div>
+          <div class="font-raleway max-w-[35%] text-center"><%= link_to "#{element.model}", element %></div>
+        </div>
+      <% end %>
+    </div>
+  </turbo-frame>
+</div>
+
+<turbo-frame id="disclist">
+  <div class="flex flex-col justify-center glass-box">
+    <%= form_with(url: discs_path, method: "GET") do |form| %>
+      <div class="flex justify-center gap-4 px-6 py-2">
+        <h3 aria-label="Maker">Maker</h3>
+        <h3 aria-label="Model">Model</h3>
+      </div>
+      <div class="flex justify-center gap-4 px-6 pb-2">
+        <%= form.text_field :fmaker, class:"rounded-md font-righteous text-lg text-right" %>
+        <%= form.text_field :fmodel, class:"rounded-md font-righteous text-lg" %>
+      </div>
+      <div class="flex justify-center gap-4 px-6 pb-2">
+        <%= form.submit "Search", name: nil, class:"btn-green w-1/4" %>
       </div>
     <% end %>
   </div>
-</turbo-frame>
 
-<turbo-frame id="disclist">
-  
-  
+  <div id="discs" class="flex flex-col mx-2 mt-4 justify-center bg-clip-padding backdrop-filter bg-gradient-to-b from-slate-400 to-slate-600 border-t border-l border-gray-200 inset-shadow rounded-lg">
+    <%= render @discs %>
+  </div>
 </turbo-frame>

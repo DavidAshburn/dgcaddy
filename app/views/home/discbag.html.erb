@@ -1,4 +1,4 @@
-<div data-controller="discbag" class="flex flex-col w-full items-center">
+<div class="flex flex-col w-full items-center">
   <div class="flex flex-col items-center"> 
     <div class="flex flex-row w-full justify-center">
       <h1 class="font-bold sm:text-8xl text-6xl font-righteous text-zinc-800">Discbag</h1>
@@ -15,21 +15,6 @@
 
     </turbo-frame>
   </div>
-  
-
-  <form class="flex flex-col justify-center glass-box" action="/dsearch">
-    <div class="flex justify-center gap-4 px-6 py-2">
-      <h3>Maker</h3>
-      <h3>Model</h3>
-    </div>
-    <div class="flex justify-center gap-4 px-6 pb-2">
-      <input type="text" id="findmaker" name="fmaker" data-discbag-target="findmaker" class="rounded-md font-righteous text-lg text-right">
-      <input type="text" id="findmodel" name="fmodel" data-discbag-target="findmodel" class="rounded-md font-righteous text-lg">
-    </div>
-    <div class="flex justify-center gap-4 px-6 pb-2">
-      <button class="btn-green w-1/4" type="submit">Find</button>
-    </div>
-  </form>
 
   <div class="flex flex-col glass-box w-full">
     <!--

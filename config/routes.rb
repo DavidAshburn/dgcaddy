@@ -10,6 +10,5 @@ Rails.application.routes.draw do
   get 'home/profile'
   get 'home/map'
   get 'home/discbag'
-  get 'dsearch', to: 'discs#search'
 
 end
