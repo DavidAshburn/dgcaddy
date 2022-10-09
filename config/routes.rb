@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  resources :discs
-  resources :cards, :variants, :courses
-  resources :coursekeys, only: [:create]
-  resources :disckeys, only: [:create, :destroy]
-
+  resources :discs, :cards, :variants, :courses, :coursekeys, :disckeys
   devise_for :users
 
   root 'home#index'

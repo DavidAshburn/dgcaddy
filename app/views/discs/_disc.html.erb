@@ -8,4 +8,8 @@
   <p>
     <%= link_to "Show", disc, class:"btn-green" %>
   </p>
+
+  <% if !@discbag.include? disc %>
+    <%= turbo_frame_tag "new_disckey", src: new_disckey_path(:pointer => disc.id), target:"_top" %>
+  <% end %>
 </div>

@@ -17,8 +17,6 @@ module.exports = {
         'raleway': ['Raleway', 'sans-serif'],
         'monoton': ['Monoton', 'cursive'],
         'righteous': ['Righteous', 'cursive'],
-        'questrial': ['Questrial', 'sans-serif'],
-        'lato': ['Lato', 'sans-serif'],
       },
     },
   },

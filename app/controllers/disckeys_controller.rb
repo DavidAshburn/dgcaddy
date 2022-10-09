@@ -1,12 +1,17 @@
 class DisckeysController < ApplicationController
-  before_action :set_disckey, only: %i[ destroy ]
+  before_action :set_disckey, only: %i[ show edit update destroy ]
+
+  def new
+    @disckey = Disckey.new
+  end
 
   # POST /cards or /cards.json
   def create
-    @disckey = Disckey.new(disckey_params)
+    @disckey = current_user.disckeys.create!(disckey_params)
 
     respond_to do |format|
       if @disckey.save
+        format.turbo_stream
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -27,7 +32,7 @@ class DisckeysController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_disckey
-      @disckey = disckey.find(params[:id])
+      @disckey = Disckey.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

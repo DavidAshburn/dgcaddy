@@ -1,7 +1,7 @@
 <div class="hidden">
   <turbo-frame id="discbag">
     <div class="flex flex-col w-full gap-4 mt-4">
-      <% @list.each do |element| %>
+      <% @discbag.each do |element| %>
         <div class="flex justify-between items-center px-6 glass-box">
           <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= element.maker %></div>
           <div class="font-raleway max-w-[35%] text-center"><%= link_to "#{element.model}", element %></div>
