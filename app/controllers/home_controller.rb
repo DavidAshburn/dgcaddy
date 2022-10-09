@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   end
 
   def profile
-    @played = current_user.coursekeys.map{ |key| Course.find_by(id: key.pointer)}
+    @played = current_user.coursekeys
   end
 
   def map
