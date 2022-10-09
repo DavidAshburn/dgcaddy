@@ -3,7 +3,7 @@ class DiscsController < ApplicationController
 
   # GET /discs or /discs.json
   def index
-    @list = current_user.disckeys.map{|key| Disc.find_by(id:key.pointer)}
+    @discbag = current_user.disckeys.map{|key| Disc.find_by(id:key.pointer)}
     
     if params[:fmaker].present? 
       @mak = params[:fmaker].downcase

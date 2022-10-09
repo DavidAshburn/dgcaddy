@@ -5,37 +5,9 @@
     </div>
   </div>
 
-  <div class="flex flex-col glass-box w-full">
-    <!--
-     turbo frame for discbag, 
-     populated by current_user.disckeys
-     updated whenever we add a disc to the bag
-    -->
-    <turbo-frame id="discbag">
-
-    </turbo-frame>
+  <div class="flex flex-col glass-box rounded-[3rem] w-full h-[50vh] mt-6 py-2">
+    <%= render @discs %>
   </div>
 
-  <div class="flex flex-col glass-box w-full">
-    <!--
-     turbo frame for discs, based on the filter applied
-     default to empty
-    -->
-    <turbo-frame id="disclist">
 
-    </turbo-frame>
-  </div>
-
-  
-
-  <div class="flex flex-col glass-box w-full">
-    <!--
-     turbo frame for add Disc
-     Inline edit Maker and Model then add to Discbag
-     this might need to be a turbo_stream since I want to update this partial as well as discbag
-    -->
-    <turbo-frame id="discadd">
-      
-    </turbo-frame>
-  </div>
 </div>
