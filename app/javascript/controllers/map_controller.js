@@ -4,7 +4,8 @@ export default class extends Controller {
  	static targets = [ 
  		"mapPane",
  		"latitude",
- 		"longitude"
+ 		"longitude",
+ 		"apireference"
  	]
 
  	connect() {
