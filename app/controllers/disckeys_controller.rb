@@ -24,7 +24,6 @@ class DisckeysController < ApplicationController
     @disckey.destroy
 
     respond_to do |format|
-      format.html { redirect_to home_discbag_path, notice: "Disc removed from bag." }
       format.json { head :no_content }
     end
   end

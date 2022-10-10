@@ -63,7 +63,10 @@
   </div>
 
 <div class="glass-box w-full p-4 my-2 w-11/12">
-  <%= link_to 'Edit this disc', edit_disc_path(@disc), class: "btn-yellow" %>
+  <% if @disc.user_id != 0 %>
+    <%= link_to 'Edit this disc', edit_disc_path(@disc), class: "btn-yellow" %>
+  <% end %>
+
   <%= link_to 'Discbag', home_discbag_path, class: "btn-blue" %>
 </div>
 
