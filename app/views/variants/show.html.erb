@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center" data-controller="showvar"> 
+<div class="flex flex-col items-center w-4/5" data-controller="showvar"> 
   <div class="flex flex-row w-full justify-center">
     <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-zinc-800"><%= @variant.name %></h2>
   </div>
@@ -63,7 +63,7 @@
     <% end %>
   </div>
 
-  <div class="flex flex-col w-full justify-center gap-2 mt-4">
+  <div class="flex flex-col w-1/2 justify-center gap-2 mt-4">
     <%= link_to 'Play', new_card_path(variant_id: @variant.id), class: "btn-green" %>
     <%= link_to 'Edit this layout', edit_variant_path(@variant), class: "btn-yellow" %>
     <%= link_to 'Back to course', @course, class: "btn-blue" %>

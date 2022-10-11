@@ -4,13 +4,15 @@
   </div>
   <h3 class="font-bold sm:text-4xl text-2xl font-righteous text-zinc-800"><%= @course.city %>,&nbsp<%= @course.state %></h3>
 
-  <div class="flex flex-col w-full gap-4 mt-4">
+  <div class="flex flex-col w-full gap-4 mt-4 items-center">
     <% @course.variants.each do |element| %>
-      <div class="flex align-center justify-center glass-box">
-        
-        <div class="font-bold font-righteous text-lg text-center w-5/12"><%= link_to "#{element.name}", element %></div>
-        <div class="font-raleway text-center w-5/12"><%= element.length %>&nbspHoles</div>
-      </div>
+      <%= link_to element do %>
+        <div class="flex justify-between items-center px-6 glass-box w-[80vw] md:w-[70vw] lg:w-[60vw] transition-all ease-in">
+          
+          <div class="font-bold font-righteous text-lg max-w-[50%]"><%= element.name %></div>
+          <div class="font-raleway max-w-[35%]"><%= element.length %>&nbspHoles</div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 

@@ -32,10 +32,51 @@
   }
 
   .glass-box {
-    @apply rounded-full bg-clip-padding backdrop-filter bg-gradient-to-b from-slate-100 to-slate-300 border-t border-l border-gray-200 inset-shadow;
+    @apply rounded-full bg-clip-padding backdrop-filter bg-gradient-to-b from-slate-100/20 to-slate-300/40 border-b border-l inset-shadow transition-all ease-in;
   }
 
   .glass-button {
     @apply rounded-full bg-clip-padding backdrop-filter backdrop-blur-xl bg-gradient-to-b from-slate-400/20 to-zinc-600/20 rounded-full border-t border-l border-gray-200 inset-shadow;
   }
+}
+
+@keyframes bg-animate {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+body {
+  animation: bg-animate 120s infinite;
+}
+
+.container-alert {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  botom: 10px;
+}
+
+.alert {
+  display: flex;
+  width: 80vw;
+  border: 2px solid white;
+  border-radius: 3.2rem .8rem 3.2rem .8rem;
+  font-family: "Raleway";
+  color: white;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 1rem;
+  left: 10vw;
 }

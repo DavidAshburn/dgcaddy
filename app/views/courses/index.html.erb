@@ -3,12 +3,14 @@
     <h2 class="font-bold sm:text-8xl text-6xl font-righteous text-right">Courses</h2>
   </div>
 
-  <div class="flex flex-col w-full gap-4 mt-4">
+  <div class="flex flex-col w-full gap-4 mt-4 items-center">
     <% @list.each do |element| %>
-      <div class="flex justify-between items-center px-6 glass-box">
-        <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= link_to "#{element.name}", element %></div>
-        <div class="font-raleway max-w-[35%] text-center"><%= element.city %>,&nbsp<%= element.state %></div>
-      </div>
+      <%= link_to element do %>
+        <div class="flex justify-between items-center px-6 glass-box w-[80vw] md:w-[70vw] lg:w-[60vw]">
+          <div class="font-bold font-righteous text-lg max-w-[50%]"><%= element.name %></div>
+          <div class="font-raleway max-w-[35%]"><%= element.city %></div>
+        </div>
+      <% end %>
     <% end %>
   </div>
    

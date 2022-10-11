@@ -12,7 +12,7 @@
 
     <link href="https://fonts.googleapis.com/css2?&family=Monoton&family=Raleway:wght@300;400;600;700&family=Righteous&display=swap" rel="stylesheet">    
   </head>
-
+  
   <% if notice %>
     <div class="flex flex-row absolute left-10 bottom-10">
       <%= render 'layouts/alerts' %>
@@ -25,7 +25,9 @@
     </div>
   <% end %>
 
-  <body class="bg-gradient-to-b from-slate-400 to-slate-600 bg-cover bg-fixed">
+
+
+  <body class="bg-fixed bg-oversize bg-gradient-to-bl from-rose-200 via-blue-400 to-indigo-600">
     <main class="container mt-5 p-5 flex flex-col items-center w-[100vw]">
       <%= yield %>
     </main>
