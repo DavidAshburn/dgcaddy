@@ -15,7 +15,13 @@
   
   <% if notice %>
     <div class="flex flex-row absolute left-10 bottom-10">
-      <%= render 'layouts/alerts' %>
+      <%= render 'layouts/notice' %>
+    </div>
+  <% end %>
+  
+  <% if alert %>
+    <div class="flex flex-row absolute left-10 bottom-10">
+      <%= render 'layouts/alert' %>
     </div>
   <% end %>
     
