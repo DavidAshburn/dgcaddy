@@ -1,10 +1,10 @@
-<div>
-  <div class="w-full text-right pr-12 font-righteous text-4xl leading-[4.6rem] text-zinc-800"><%= current_user.email %></div>
+<div class="flex flex-col items-center font-righteous gap-4 mt-4">
+  <div class="w-full  text-4xl text-zinc-800"><%= current_user.email %></div>
   <div class="flex flex-col w-full gap-4 mt-4">
     <% @played.each  do |element| %>
       <% @course = Course.find_by(id: element.pointer) %>
       <div class="flex justify-evenly items-center glass-box rounded-lg">
-        <div class="font-bold font-righteous text-lg max-w-[50%] text-center"><%= link_to @course.name, @course %></div>
+        <div class="font-bold text-lg max-w-[50%] text-center"><%= link_to @course.name, @course %></div>
         <div class="font-raleway max-w-[35%] text-center">Cards:&nbsp<%= element.count %></div>
       </div>
     <% end %>
